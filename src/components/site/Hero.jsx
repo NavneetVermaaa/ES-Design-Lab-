@@ -54,9 +54,8 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.8 }}
-        className="absolute top-32 md:top-40 left-6 md:left-10 right-6 md:right-10 flex justify-between text-xs uppercase tracking-[0.25em] text-bone/60"
+        className="absolute top-32 md:top-40 left-6 md:left-10 right-6 md:right-10 flex justify-end text-xs uppercase tracking-[0.25em] text-bone/60"
       >
-        <span>[ ES Design Lab — Est. 2021 ]</span>
         <span className="hidden md:block">Branding · Visual · Video</span>
       </motion.div>
 

@@ -7,27 +7,41 @@ export function Contact() {
   const [status, setStatus] = useState('idle')
   const formRef = useRef(null)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setStatus('sending')
 
-    const data = new FormData(e.target)
-    data.append('_captcha', 'false')
+    const form = e.target
 
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/d.shecreatstudio@gmail.com', {
-        method: 'POST',
-        body: data,
-      })
-      if (res.ok) {
-        setStatus('sent')
-        formRef.current?.reset()
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
+    const existing = document.getElementById('form-submit-frame')
+    if (existing) document.body.removeChild(existing)
+
+    const iframe = document.createElement('iframe')
+    iframe.id = 'form-submit-frame'
+    iframe.name = 'form-submit-frame'
+    iframe.style.cssText = 'position:absolute;width:0;height:0;border:0;visibility:hidden'
+    document.body.appendChild(iframe)
+
+    let done = false
+
+    const onDone = () => {
+      if (done) return
+      done = true
+      setStatus('sent')
+      form.reset()
+      setTimeout(() => {
+        const el = document.getElementById('form-submit-frame')
+        if (el && el.parentNode) el.parentNode.removeChild(el)
+      }, 3000)
     }
+
+    iframe.onload = onDone
+    setTimeout(onDone, 10000)
+
+    form.target = 'form-submit-frame'
+    form.action = 'https://formsubmit.co/d.shecreatstudio@gmail.com'
+    form.method = 'POST'
+    form.submit()
   }
 
   return (
@@ -55,6 +69,10 @@ export function Contact() {
         <div className="md:col-span-6">
           <Reveal delay={0.15}>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-2">
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="New ES Design Lab Contact Form Submission" />
+              <input type="hidden" name="_template" value="table" />
+
               {[
                 { label: 'Name', type: 'text', name: 'name' },
                 { label: 'Email', type: 'email', name: 'email' },
