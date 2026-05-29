@@ -38,11 +38,11 @@ export default function SectionDivider() {
               }}
             />
           </div>
-          <div className="flex items-center justify-center gap-0 md:gap-0"> 
+          <div className="quote-divider">
             <motion.img
               src={iconSrc}
               alt=""
-              className="w-14 h-14 md:w-20 md:h-20 object-contain drop-shadow-[0_0_10px_rgba(254,241,2,0.4)]"
+              className="quote-icon quote-left w-14 h-14 md:w-20 md:h-20 object-contain drop-shadow-[0_0_10px_rgba(254,241,2,0.4)]"
               animate={{
                 y: [0, -5, 0],
               }}
@@ -55,7 +55,7 @@ export default function SectionDivider() {
             <motion.img
               src={iconSrc}
               alt=""
-              className="w-14 h-14 md:w-20 md:h-20 object-contain drop-shadow-[0_0_10px_rgba(254,241,2,0.4)]"
+              className="quote-icon quote-right w-14 h-14 md:w-20 md:h-20 object-contain drop-shadow-[0_0_10px_rgba(254,241,2,0.4)]"
               animate={{
                 y: [0, -5, 0],
               }}
