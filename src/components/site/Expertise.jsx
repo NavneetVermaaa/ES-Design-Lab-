@@ -36,7 +36,7 @@ export default function Expertise() {
   return (
     <section id="expertise" className="px-6 md:px-10 py-28 md:py-40 bg-background">
       <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-end mb-16 md:mb-24">
-        <Reveal className="md:col-span-4">`r`n          <p className="text-xs uppercase tracking-[0.3em] text-bone/50">[ 02 - Expertise ]</p>`r`n        </Reveal>
+        <Reveal className="md:col-span-4">         <p className="text-xs uppercase tracking-[0.3em] text-bone/50"></p>      </Reveal>
         <div className="md:col-span-8">
           <Reveal>
             <h2 className="font-display uppercase text-bone text-5xl md:text-7xl lg:text-8xl leading-[0.9]">
