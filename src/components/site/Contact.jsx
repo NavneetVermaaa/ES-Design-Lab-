@@ -291,6 +291,43 @@ export function Footer() {
         <span>© {new Date().getFullYear()} ES Design Lab</span>
         <span>All rights reserved.</span>
       </div>
+
+      <div className="mt-12 pt-8 border-t border-bone/10">
+        <div className="flex flex-col md:items-end text-center md:text-right">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-bone/40">Built with code by</p>
+          <a
+            href="https://x.com/NAVNEET_CODES"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-block mt-1.5"
+          >
+            <span className="relative text-lg md:text-xl font-medium text-bone/90 transition-all duration-300 group-hover:text-yellow group-hover:translate-y-[-2px] inline-block">
+              Navneet V
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-yellow transition-all duration-300 group-hover:w-full" />
+            </span>
+          </a>
+          <div className="flex items-center justify-center md:justify-end gap-4 mt-3">
+            <a
+              href="https://wa.me/9322962133"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 text-sm text-bone/60 transition-all duration-300 hover:text-yellow hover:translate-y-[-2px]"
+            >
+              WhatsApp
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">↗</span>
+            </a>
+            <a
+              href="https://x.com/NAVNEET_CODES"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 text-sm text-bone/60 transition-all duration-300 hover:text-yellow hover:translate-y-[-2px]"
+            >
+              Twitter
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
   )
 }
