@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const reasons = [
   {
     n: '01',
-    title: 'We think in outcomes',
+    title: ' Not Just Design - We Think in Outcomes',
     body: 'Every visual is created with a purpose: attention, engagement, or conversion.',
   },
   {
@@ -15,7 +15,7 @@ const reasons = [
   {
     n: '03',
     title: 'Built for modern platforms',
-    body: 'We design for how people actually consume content today — not yesterday.',
+    body: 'We design for how people actually consume content today, not yesterday.',
   },
   {
     n: '04',
@@ -36,7 +36,7 @@ export default function WhyUs() {
     <section className="px-6 md:px-10 py-28 md:py-40 bg-background">
       <div className="grid md:grid-cols-12 gap-10 mb-16 md:mb-24">
         <Reveal className="md:col-span-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-bone/50">[ 04 — Why us ]</p>
+         
         </Reveal>
         <div className="md:col-span-8">
           <RevealText

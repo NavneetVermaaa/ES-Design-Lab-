@@ -8,7 +8,7 @@ export default function Testimonial() {
       </Reveal>
       <Reveal delay={0.1}>
         <blockquote className="max-w-5xl font-serif-i text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
-          ES Design Lab has been the creative force behind our brand's visual identity — designing
+          ES Design Lab has been the creative force behind our brand's visual identity designing
           our logos with exceptional clarity, creativity, and a deep understanding of what our brand
           stands for. She goes beyond delivering designs; she listens, understands the vision, and
           puts her heart into every detail.

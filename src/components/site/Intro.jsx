@@ -62,15 +62,15 @@ export default function Intro() {
             viewport={{ once: true }}
           >
             <p className="text-bone/70 text-lg leading-relaxed mb-8">
-              We craft identities that command attention. Every brand we build starts with a
-              story — and we make sure that story is seen, felt, and remembered.
+              We help brands create a clear and consistent presence through thoughtful design, branding,
+              and visual storytelling.
             </p>
             <a
               href="#work"
               className="group inline-flex items-center gap-3"
             >
               <span className="rounded-pill bg-violet text-ink px-7 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-transform group-hover:-translate-x-1">
-                See our work
+                Contact Us
               </span>
               <span className="grid h-12 w-12 place-items-center rounded-full bg-yellow text-ink transition-transform group-hover:translate-x-1">
                 →

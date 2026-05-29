@@ -25,7 +25,7 @@ export function Nav() {
         <div className="flex items-center gap-10 mix-blend-difference">
           <nav className="hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.18em] text-bone">
             <a href="#work" className="hover:text-yellow transition-colors">Work</a>
-            <a href="#expertise" className="hover:text-yellow transition-colors">Services</a>
+            <a href="#expertise" className="hover:text-yellow transition-colors">Expertise</a>
             <a href="#about" className="hover:text-yellow transition-colors">About</a>
             <a href="#contact" className="hover:text-yellow transition-colors">Contact</a>
           </nav>
@@ -56,7 +56,7 @@ export function Hero() {
         transition={{ delay: 0.6, duration: 0.8 }}
         className="absolute top-32 md:top-40 left-6 md:left-10 right-6 md:right-10 flex justify-end text-xs uppercase tracking-[0.25em] text-bone/60"
       >
-        <span className="hidden md:block">Branding · Visual · Video</span>
+       
       </motion.div>
 
       <motion.div style={{ y, opacity }} className="px-6 md:px-10 pb-16 md:pb-24">
@@ -127,7 +127,6 @@ export function Hero() {
         transition={{ delay: 1.4 }}
         className="absolute bottom-6 right-6 md:right-10 text-[10px] uppercase tracking-[0.3em] text-bone/40"
       >
-        Scroll ↓
       </motion.div>
     </section>
   )

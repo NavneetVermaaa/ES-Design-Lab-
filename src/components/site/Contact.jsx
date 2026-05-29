@@ -49,20 +49,61 @@ export function Contact() {
       <div className="grid md:grid-cols-12 gap-10 md:gap-16">
         <div className="md:col-span-6">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-ink/60 mb-6">[ 05 — Contact ]</p>
+          
           </Reveal>
           <h2 className="font-display uppercase text-ink text-6xl md:text-8xl lg:text-9xl leading-[1.02] md:leading-[0.85]">
             Ready to <br />
             <span className="font-serif-i lowercase">build</span> your <br />
             brand?
           </h2>
-          <div className="mt-12 space-y-2 text-ink/80">
-            <a href="mailto:info@esdesignlab.com" className="block text-lg hover:underline">
-              info@esdesignlab.com
-            </a>
-            <a href="tel:+917668182139" className="block text-lg hover:underline">
-              +91 76681 82139
-            </a>
+          <div className="mt-10 md:mt-12 space-y-6">
+            <Reveal>
+              <p className="text-ink/70 text-base md:text-lg leading-relaxed max-w-md">
+                Would you rather directly get in touch?<br />
+                We always have the time for a call or email!
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-lg md:text-xl text-ink/80">
+                <a
+                  href="mailto:info@esdesignlab.com"
+                  className="group inline-flex items-center gap-1.5 hover:text-ink transition-colors duration-300"
+                >
+                  <svg
+                    className="w-3.5 h-3.5 -ml-1 transition-transform duration-300 group-hover:translate-x-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                  <span className="relative">
+                    info@esdesignlab.com
+                    <span className="absolute -bottom-px left-0 w-0 h-px bg-ink transition-all duration-300 group-hover:w-full" />
+                  </span>
+                </a>
+                <span className="text-ink/30 select-none">|</span>
+                <a
+                  href="tel:+917668182139"
+                  className="group inline-flex items-center gap-1.5 hover:text-ink transition-colors duration-300"
+                >
+                  <svg
+                    className="w-3.5 h-3.5 -ml-1 transition-transform duration-300 group-hover:translate-x-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                  <span className="relative">
+                    +91 76681 82139
+                    <span className="absolute -bottom-px left-0 w-0 h-px bg-ink transition-all duration-300 group-hover:w-full" />
+                  </span>
+                </a>
+              </div>
+            </Reveal>
           </div>
         </div>
 

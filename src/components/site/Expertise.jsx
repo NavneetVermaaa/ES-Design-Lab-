@@ -7,21 +7,21 @@ const services = [
     title: 'Branding',
     headline: 'One identity. Endless reach.',
     tagline: 'We build identities that live beyond the logo — in every interaction, every surface, every touchpoint.',
-    body: 'From building identities for new startups to reshaping established brands. We make sure your brand communicates clearly, connects with the right audience, and leaves a lasting impression.',
+    body: 'We bring strong experience in branding from building identities for new startups to reshaping established brands. Whatever the challenge we make sure your brand communicates clearly, connects with the right audience, and leaves a lasting impression',
     items: ['Identity systems', 'Logo design', 'Brand guidelines', 'Naming'],
   },
   {
     title: 'Visual Design',
     headline: 'Make it inevitable.',
     tagline: 'Every pixel earns its place. Visual systems that feel like they\'ve always belonged.',
-    body: 'Editorial layouts, packaging, social systems and digital surfaces — designed to feel inevitable. Every pixel earns its place in your visual language.',
+    body: 'We create visuals that capture attention and communicate with purpose. From brochures, reports, and flyers to point-of-sale materials, event creatives, packaging, and more every design is crafted to stand out and set you apart from the competition.',
     items: ['Art direction', 'Packaging', 'Social systems', 'Web design'],
   },
   {
     title: 'Video Editing',
     headline: 'Motion that moves.',
     tagline: 'Story-driven, rhythm-built, scroll-stopping. Cut for emotion and built for the feed.',
-    body: 'Story-driven motion for the platforms people actually scroll. From reels to brand films, we cut for emotion, rhythm and the algorithm — in that order.',
+    body: 'We edit videos that carry emotion, rhythm, and clarity so your story lands, holds attention, and builds connection. Whether it\'s short-form content or brand storytelling, we turn raw footage into purposeful narratives.',
     items: ['Brand films', 'Reels & shorts', 'Motion graphics', 'Color grade'],
   },
 ]
@@ -40,7 +40,6 @@ export default function Expertise() {
     <section id="expertise" className="px-6 md:px-10 py-28 md:py-40 bg-background">
       <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-end mb-16 md:mb-24">
         <Reveal className="md:col-span-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-bone/50">[ 02 — Expertise ]</p>
         </Reveal>
         <div className="md:col-span-8">
           <div className="overflow-hidden">
