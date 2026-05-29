@@ -7,7 +7,7 @@ export function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="flex items-center justify-between px-6 md:px-10 py-6">
         <motion.a
-          href="#top"
+          href="/"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
@@ -24,13 +24,13 @@ export function Nav() {
 
         <div className="flex items-center gap-10 mix-blend-difference">
           <nav className="hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.18em] text-bone">
-            <a href="#work" className="hover:text-yellow transition-colors">Work</a>
-            <a href="#expertise" className="hover:text-yellow transition-colors">Expertise</a>
-            <a href="#about" className="hover:text-yellow transition-colors">About</a>
-            <a href="#contact" className="hover:text-yellow transition-colors">Contact</a>
+            <a href="/#work" className="hover:text-yellow transition-colors">Work</a>
+            <a href="/#expertise" className="hover:text-yellow transition-colors">Expertise</a>
+            <a href="/#about" className="hover:text-yellow transition-colors">About</a>
+            <a href="/#contact" className="hover:text-yellow transition-colors">Contact</a>
           </nav>
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden md:inline-flex items-center gap-2 rounded-pill border border-bone/40 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-bone hover:bg-bone hover:text-ink transition-colors"
           >
             Start a project
@@ -107,7 +107,7 @@ export function Hero() {
             branding, and visual storytelling.
           </p>
           <a
-            href="#contact"
+            href="/#contact"
             className="group inline-flex items-center gap-3 self-start md:self-auto"
           >
             <span className="rounded-pill bg-violet text-ink px-7 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-transform group-hover:-translate-x-1">
