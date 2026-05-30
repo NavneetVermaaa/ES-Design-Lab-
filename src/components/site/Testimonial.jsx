@@ -114,17 +114,17 @@ export default function Testimonial() {
           exit="exit"
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="font-display text-ink text-8xl md:text-[12rem] leading-none mb-10">"</div>
-          <blockquote className="max-w-5xl font-serif-i text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-ink">
+          <div className="font-display text-ink text-8xl md:text-[12rem] leading-none mb-10" style={{ fontFamily: '"Non Idyllic", serif' }}>"</div>
+          <blockquote className="max-w-5xl font-serif-i text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-ink" style={{ fontFamily: '"Non Idyllic", serif' }}>
             {t.quote}
           </blockquote>
           <div className="mt-12 flex items-center gap-4">
-            <div className="h-12 w-12 rounded-full bg-ink text-bone grid place-items-center font-display text-lg">
+            <div className="h-12 w-12 rounded-full bg-ink text-bone grid place-items-center font-display text-lg" style={{ fontFamily: '"Non Idyllic", serif' }}>
               {t.initials}
             </div>
             <div>
-              <div className="font-medium">{t.name}</div>
-              {t.role && <div className="text-sm text-ink/70">{t.role}</div>}
+              <div className="font-medium" style={{ fontFamily: '"Non Idyllic", serif' }}>{t.name}</div>
+              {t.role && <div className="text-sm text-ink/70" style={{ fontFamily: '"Non Idyllic", serif' }}>{t.role}</div>}
             </div>
           </div>
         </motion.div>
