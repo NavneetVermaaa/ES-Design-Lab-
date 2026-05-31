@@ -1,82 +1,32 @@
 import { Reveal } from '@/components/Reveal'
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  useInView,
-  animate,
-} from 'framer-motion'
-import { useState, useRef, useEffect } from 'react'
+import { Footer } from '@/components/site/Contact'
+import { motion, useInView, useMotionValue, useScroll, useTransform, animate } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
-const aboutBlocks = [
-  { text: 'We believe brands should feel clear.', accent: false },
-  { text: 'Not confusing.\nNot forgettable.', accent: true },
-  { text: 'Because design is more than decoration.', accent: false },
-  { text: "It's how people recognize you.\nTrust you.\nRemember you.", accent: true },
-  { text: 'So we create visuals with intention.', accent: false },
-  { text: 'Through branding.\nThrough motion.\nThrough storytelling.', accent: true },
-  { text: 'No noise.\nNo unnecessary clutter.', accent: false },
-  { text: 'Just thoughtful creative built to shape brands.', accent: false },
-]
-
-const stats = [
-  { value: 50, suffix: '+', label: 'Projects Done' },
-  { value: 98, suffix: '%', label: 'Client Retention' },
-  { value: 6, suffix: '+', label: 'Years Experience' },
-]
-
-const processItems = [
-  {
-    title: 'Getting Clear',
-    description:
-      'Before designing anything, we understand your brand, goals, audience, and what currently feels unclear.',
-  },
-  {
-    title: 'Defining the direction',
-    description:
-      'We shape your visual direction, tone, and the emotional language your brand should communicate.',
-  },
-  {
-    title: 'Designing with intention',
-    description:
-      'Every choice is purposeful. From identity to motion, we design to communicate clearly and connect naturally.',
-  },
-  {
-    title: 'Refining',
-    description:
-      'We iterate with you until everything feels aligned, polished, and ready to represent your brand confidently.',
-  },
-  {
-    title: 'Deliver, Support & launch',
-    description:
-      'You receive complete assets and rollout-ready files, plus support so your launch feels smooth and confident.',
-  },
-]
-
-function HeroSection() {
+function AboutHeroSection() {
   return (
-    <section className="bg-black w-full min-h-screen flex items-center px-[5%] pt-[80px] pb-[60px] overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto flex items-center">
-        <div className="w-full md:w-[55%]">
+    <section className="relative w-full h-[82vh] min-h-[620px] max-h-[900px] bg-black overflow-hidden flex items-center px-[5%] pt-[54px] pb-[36px]">
+      <div className="w-full max-w-[1500px] mx-auto">
+        <div className="w-full lg:w-[92%] xl:w-[88%]">
           <Reveal delay={0.08}>
-            <p className="font-serif-i text-white text-[2.8rem] md:text-[2.8rem] leading-tight">
+            <p className="font-serif-i italic text-white text-[2.5rem] sm:text-[2.9rem] md:text-[3.3rem] leading-[0.95]">
               WE ARE
             </p>
           </Reveal>
 
           <Reveal delay={0.18}>
-            <h2 className="font-display text-[#FFE600] text-[5.5rem] md:text-[5.6rem] leading-[1] mt-2 -ml-[0.04em] tracking-tight uppercase">
+            <h1 className="font-display uppercase tracking-[-0.015em] text-[#FFE600] text-[3.15rem] sm:text-[4.9rem] md:text-[6.2rem] lg:text-[7rem] xl:text-[7.7rem] leading-[0.92] mt-1">
               A CREATIVE LAB FOR
-            </h2>
+            </h1>
           </Reveal>
 
           <Reveal delay={0.28}>
-            <div className="flex items-start gap-8 mt-2">
-              <h2 className="font-display text-white text-[5.5rem] md:text-[5.6rem] leading-[1] -ml-[0.04em] shrink-0">
+            <div className="mt-0.5 grid grid-cols-1 lg:grid-cols-[minmax(0,68%)_minmax(0,28%)] items-start gap-y-3 lg:gap-x-5 xl:gap-x-7">
+              <h2 className="font-display uppercase tracking-[-0.015em] text-white text-[3.15rem] sm:text-[4.9rem] md:text-[6.2rem] lg:text-[7rem] xl:text-[7.7rem] leading-[0.92] shrink-0">
                 MODERN BRANDS
               </h2>
 
-              <p className="text-[#CCCCCC] text-[0.95rem] max-w-[320px] pt-2 leading-relaxed">
+              <p className="text-[#CFCFCF] text-[0.98rem] md:text-[1.03rem] leading-[1.65] max-w-[420px] mt-2 lg:mt-[1.2rem] xl:mt-[1.5rem]">
                 Over the years, we&rsquo;ve helped businesses and creators build visuals
                 that feel clear, consistent, and memorable.
               </p>
@@ -88,160 +38,220 @@ function HeroSection() {
   )
 }
 
-function AboutContentSection() {
-  return (
-    <section className="w-full min-h-[520px] flex flex-col lg:flex-row">
-      <div className="w-full lg:w-[55%] bg-[#0A0A0A] px-[5%] py-[60px]">
-        <div className="max-w-[620px]">
-          {aboutBlocks.map((block, i) => (
-            <Reveal key={i} delay={0.06 * i}>
-              <p
-                className={`whitespace-pre-line text-[1rem] leading-relaxed mb-4 ${
-                  block.accent
-                    ? "font-serif-i text-[#FFE600]"
-                    : 'text-white'
-                }`}
-              >
-                {block.text}
-              </p>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-
-      <div className="w-full lg:w-[45%] bg-[#FFE600] relative overflow-hidden min-h-[420px] lg:min-h-[520px] flex items-center justify-center">
-        <Reveal delay={0.18}>
-          <div className="relative w-full h-full flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute right-[6%] w-[340px] h-[460px] bg-black"
-              style={{ borderRadius: '50% 50% 50% 0 / 60% 60% 40% 40%' }}
-            />
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="absolute right-[9%] bottom-[6%] font-display text-[#FFE600] text-[2.8rem] leading-[1.05]"
-            >
-              ES Design Lab.
-            </motion.div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-function CountUp({ value, suffix = '', isPercent = false }) {
+function CountUp({ value, suffix = '' }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, amount: 0.4 })
+  const inView = useInView(ref, { once: true, amount: 0.5 })
   const mv = useMotionValue(0)
   const rounded = useTransform(mv, (v) => Math.round(v))
 
   useEffect(() => {
     if (!inView) return
     const controls = animate(mv, value, {
-      duration: 1.5,
+      duration: 1.4,
       ease: [0.22, 1, 0.36, 1],
     })
     return () => controls.stop()
-  }, [inView, value, mv])
+  }, [inView, mv, value])
 
   return (
     <div ref={ref} className="font-display text-black leading-none">
-      <motion.span className="text-[4.5rem] md:text-[5rem]">{rounded}</motion.span>
-      {suffix && (
-        <span className={`${isPercent ? 'text-[2.5rem] md:text-[3rem] align-top ml-1' : 'text-[4.5rem] md:text-[5rem] ml-1'}`}>
-          {suffix}
-        </span>
-      )}
+      <motion.span className="text-[3.2rem] md:text-[4rem] lg:text-[4.4rem]">{rounded}</motion.span>
+      <span className="text-[3.2rem] md:text-[4rem] lg:text-[4.4rem]">{suffix}</span>
     </div>
   )
 }
 
-function StatsSection() {
+function AboutSecondSection() {
+  const sectionRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [24, -24])
+
   return (
-    <section className="w-full bg-[#FFE600] px-[5%] py-[50px]">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center">
-        {stats.map((stat, i) => (
-          <div key={stat.label} className="flex items-center">
-            <Reveal delay={0.1 * i}>
-              <div className="min-w-[220px] text-center px-6 py-4">
-                <CountUp
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  isPercent={stat.suffix === '%'}
-                />
-                <p className="font-sans text-black text-[0.85rem] uppercase tracking-[0.12em] mt-2">
-                  {stat.label}
+    <section ref={sectionRef} className="w-full bg-[#FFE600] py-[80px] md:py-[96px] lg:py-[112px]">
+      <div className="max-w-[1500px] mx-auto px-[5%]">
+        <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-10 lg:gap-12">
+          <div className="w-full lg:w-[38%] text-left">
+            <Reveal>
+              <div className="space-y-3 text-[1rem] md:text-[1.06rem] leading-[1.55]">
+                <p className="text-white">We believe brands should feel clear.</p>
+
+                <p className="font-serif-i italic text-black">Not confusing.</p>
+                <p className="font-serif-i italic text-black">Not forgettable.</p>
+
+                <p className="text-white">Because design is more than decoration.</p>
+
+                <p className="font-serif-i italic text-black">It&apos;s how people recognize you.</p>
+                <p className="font-serif-i italic text-black">Trust you.</p>
+                <p className="font-serif-i italic text-black">Remember you.</p>
+
+                <p className="text-white">So we create visuals with intention.</p>
+
+                <p className="font-serif-i italic text-black">Through branding.</p>
+                <p className="font-serif-i italic text-black">Through motion.</p>
+                <p className="font-serif-i italic text-black">Through storytelling.</p>
+
+                <p className="text-white">No noise.</p>
+                <p className="text-white">No unnecessary clutter.</p>
+
+                <p className="text-white">
+                  Just thoughtful creative
+                  <br />
+                  built to shape brands.
                 </p>
               </div>
             </Reveal>
-            {i < stats.length - 1 && (
-              <div className="hidden md:block w-[1px] h-[60px] bg-black/30 mx-2" />
-            )}
           </div>
-        ))}
+
+          <div className="w-full lg:w-[62%] flex flex-col items-center justify-center">
+            <Reveal delay={0.08}>
+              <motion.div
+                style={{ y: parallaxY }}
+                className="w-[300px] h-[390px] sm:w-[360px] sm:h-[470px] md:w-[420px] md:h-[540px] bg-black relative flex items-center justify-center"
+              >
+                <div
+                  className="absolute inset-0 bg-black"
+                  style={{ clipPath: 'polygon(0 0, 100% 0, 100% 82%, 72% 82%, 72% 100%, 0 100%)' }}
+                />
+                <div className="relative z-10 text-[#FFE600] font-display uppercase leading-[0.9] text-[3.2rem] sm:text-[3.9rem] md:text-[4.5rem] text-center">
+                  ES
+                  <br />
+                  Design
+                  <br />
+                  Lab.
+                </div>
+              </motion.div>
+            </Reveal>
+
+            <Reveal delay={0.14}>
+              <div className="w-full max-w-[760px] mt-12 md:mt-14 border-t border-black/35 pt-8 md:pt-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 items-center">
+                  <div className="text-center py-4">
+                    <CountUp value={50} suffix="+" />
+                    <p className="text-black text-[0.82rem] md:text-[0.9rem] uppercase tracking-[0.12em] mt-2">
+                      Projects Done
+                    </p>
+                  </div>
+
+                  <div className="text-center py-4 border-t md:border-t-0 md:border-l md:border-r border-black/35">
+                    <CountUp value={98} suffix="%" />
+                    <p className="text-black text-[0.82rem] md:text-[0.9rem] uppercase tracking-[0.12em] mt-2">
+                      Client Retention
+                    </p>
+                  </div>
+
+                  <div className="text-center py-4 border-t md:border-t-0">
+                    <CountUp value={6} suffix="+" />
+                    <p className="text-black text-[0.82rem] md:text-[0.9rem] uppercase tracking-[0.12em] mt-2">
+                      Years Experience
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   )
 }
 
-function ProcessSection() {
+function AboutThirdSection() {
   const [openIndex, setOpenIndex] = useState(0)
+
+  const processItems = [
+    {
+      num: 1,
+      title: 'Getting Clear',
+      desc: 'Before designing anything, we take time to understand your brand, goals, audience, and what\'s currently missing or unclear.',
+    },
+    {
+      num: 2,
+      title: 'Defining the direction',
+      desc: 'Together, we shape the creative direction, the tone, visual language, and overall feeling your brand should communicate.',
+    },
+    {
+      num: 3,
+      title: 'Designing with intention',
+      desc: 'Every visual decision is made with purpose. From branding to motion and layout, everything is designed to communicate clearly and connect naturally.',
+    },
+    {
+      num: 4,
+      title: 'Refining',
+      desc: 'We review, refine, and improve collaboratively until everything feels aligned, polished, and ready to represent your brand confidently.',
+    },
+    {
+      num: 5,
+      title: 'Deliver, Support & launch',
+      desc: 'Once everything is finalized, you receive your files, assets, and the support needed to launch confidently. And if you need help after, we\'re still here.',
+    },
+  ]
+
   return (
-    <section className="w-full bg-black px-[5%] py-[80px]">
-      <div className="max-w-6xl mx-auto">
+    <section className="w-full bg-black py-[80px] md:py-[96px] lg:py-[112px] border-t border-white/10">
+      <div className="max-w-[1500px] mx-auto px-[5%]">
         <Reveal>
-          <h2 className="font-display text-[#FFE600] text-[2.4rem] md:text-[3.5rem] leading-none text-center mb-[50px] uppercase">
+          <h2 className="text-[#FFE600] text-center font-display uppercase tracking-[-0.015em] text-[2.5rem] sm:text-[3.2rem] lg:text-[3.8rem] mb-[80px] leading-none">
             The Process
           </h2>
         </Reveal>
 
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}>
+        <div className="max-w-[1200px] mx-auto border-t border-white/15">
           {processItems.map((item, i) => {
             const isOpen = openIndex === i
             return (
-              <Reveal key={item.title} delay={0.08 * i}>
-                <div style={{ borderBottom: '1px solid rgba(255,255,255,0.15)' }}>
+              <Reveal key={i} delay={0.06 * i}>
+                <div className="border-b border-white/15">
                   <button
                     onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                    className="w-full py-6 flex items-center justify-between text-left"
+                    className="w-full py-6 md:py-8 px-0 flex items-center justify-between text-left group hover:bg-white/[0.01] transition-colors duration-200"
                   >
-                    <span className="font-display text-white text-[1.2rem] md:text-[1.6rem] leading-none uppercase">
-                      {i + 1}. {item.title}
+                    <span className="flex-1 flex items-center gap-6 md:gap-8">
+                      <span className="font-display text-[#FFE600] text-[0.85rem] md:text-[0.95rem] font-bold leading-none">
+                        {String(item.num).padStart(2, '0')}
+                      </span>
+                      <span className="font-display text-white text-[1.3rem] md:text-[1.7rem] lg:text-[1.95rem] leading-tight">
+                        {item.title}
+                      </span>
                     </span>
+
                     <motion.div
                       animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0"
+                      transition={{ duration: 0.25, ease: 'easeOut' }}
+                      className="shrink-0 ml-4"
                     >
-                      <svg
-                        className="w-4 h-4 md:w-5 md:h-5 text-white"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                      </svg>
+                      <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center">
+                        <svg
+                          className="w-5 h-5 md:w-6 md:h-6 text-white stroke-[1.5]"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                      </div>
                     </motion.div>
                   </button>
 
                   <motion.div
                     initial={false}
-                    animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    animate={{
+                      height: isOpen ? 'auto' : 0,
+                      opacity: isOpen ? 1 : 0,
+                    }}
+                    transition={{
+                      height: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+                      opacity: { duration: 0.3, ease: 'easeOut' },
+                    }}
                     className="overflow-hidden"
                   >
-                    <p className="text-[#CCCCCC] text-[0.98rem] leading-relaxed pb-6 max-w-3xl">
-                      {item.description}
-                    </p>
+                    <div className="pb-6 md:pb-8 pl-[calc(2rem+1.5rem)] md:pl-[calc(2.5rem+2rem)] pr-8 md:pr-12">
+                      <p className="text-[#CFCFCF] text-[0.95rem] md:text-[1rem] lg:text-[1.05rem] leading-[1.65] md:leading-[1.75] max-w-[700px]">
+                        {item.desc}
+                      </p>
+                    </div>
                   </motion.div>
                 </div>
               </Reveal>
@@ -253,53 +263,13 @@ function ProcessSection() {
   )
 }
 
-function AboutFooter() {
-  return (
-    <footer className="w-full bg-black px-[5%] pt-[60px] pb-[30px]">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-10 md:gap-8 justify-between">
-          <div>
-            <p className="font-display text-[#FFE600] text-[2rem] leading-none uppercase">ES</p>
-            <p className="text-white text-sm mt-4">info@esdesignlab.com</p>
-            <p className="text-white text-sm mt-1">7668102139</p>
-          </div>
-
-          <div>
-            <p className="text-white text-[0.75rem] tracking-[0.18em] uppercase mb-3">Navigate</p>
-            <ul className="space-y-2 text-[0.9rem]">
-              <li><a href="/about" className="text-white hover:text-[#FFE600] transition-all duration-300">About</a></li>
-              <li><a href="/work" className="text-white hover:text-[#FFE600] transition-all duration-300">Work</a></li>
-              <li><a href="/services" className="text-white hover:text-[#FFE600] transition-all duration-300">Services</a></li>
-              <li><a href="/contact" className="text-white hover:text-[#FFE600] transition-all duration-300">Contact</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-white text-[0.75rem] tracking-[0.18em] uppercase mb-3">Elsewhere</p>
-            <ul className="space-y-2 text-[0.9rem]">
-              <li><a href="#" className="text-white hover:text-[#FFE600] transition-all duration-300">📷 Instagram</a></li>
-              <li><a href="#" className="text-white hover:text-[#FFE600] transition-all duration-300">LinkedIn</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-white/10 mt-10 pt-4 flex flex-col sm:flex-row justify-between gap-2">
-          <p className="text-white text-[0.75rem]">© 2026 ES DESIGN LAB</p>
-          <p className="text-white text-[0.75rem]">ALL RIGHTS RESERVED.</p>
-        </div>
-      </div>
-    </footer>
-  )
-}
-
 export default function AboutPage() {
   return (
     <main className="bg-black text-white min-h-screen overflow-x-hidden">
-      <HeroSection />
-      <AboutContentSection />
-      <StatsSection />
-      <ProcessSection />
-      <AboutFooter />
+      <AboutHeroSection />
+      <AboutSecondSection />
+      <AboutThirdSection />
+      <Footer />
     </main>
   )
 }
