@@ -243,7 +243,7 @@ export function Footer() {
         <div className="md:col-span-3">
           <p className="text-xs uppercase tracking-[0.2em] text-bone/40 mb-3">Navigate</p>
           <ul className="space-y-1.5 text-bone/80">
-            <li><a href="#about" className="group inline-flex items-center gap-1.5 hover:text-yellow transition-colors">About</a></li>
+            <li><a href="/about" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 hover:text-yellow transition-colors">About</a></li>
             <li><a href="#work" className="group inline-flex items-center gap-1.5 hover:text-yellow transition-colors">Work</a></li>
             <li><a href="#expertise" className="group inline-flex items-center gap-1.5 hover:text-yellow transition-colors">Services</a></li>
             <li><a href="#contact" className="group inline-flex items-center gap-1.5 hover:text-yellow transition-colors">Contact</a></li>

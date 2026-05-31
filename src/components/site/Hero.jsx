@@ -26,7 +26,7 @@ export function Nav() {
           <nav className="hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.18em] text-bone">
             <a href="/#work" className="hover:text-yellow transition-colors">Work</a>
             <a href="/#expertise" className="hover:text-yellow transition-colors">Expertise</a>
-            <a href="/#about" className="hover:text-yellow transition-colors">About</a>
+            <a href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">About</a>
             <a href="/#contact" className="hover:text-yellow transition-colors">Contact</a>
           </nav>
           <a
