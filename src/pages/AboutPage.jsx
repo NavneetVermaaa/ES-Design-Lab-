@@ -1,6 +1,6 @@
 import { Reveal } from '@/components/Reveal'
 import { Footer } from '@/components/site/Contact'
-import { motion, useInView, useMotionValue, useScroll, useTransform, animate } from 'framer-motion'
+import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import aboutSectionBg from '@/assets/about-section-bg.png'
 
@@ -76,6 +76,37 @@ function CountUp({ value, suffix = '', textColor = 'text-bone' }) {
             <motion.span>{displayValue}</motion.span>
             <span>{suffix}</span>
         </div>
+    )
+}
+
+function StatsSection() {
+    const stats = [
+        { value: 50, suffix: '+', label: 'Projects Done' },
+        { value: 98, suffix: '%', label: 'Client Retention' },
+        { value: 6, suffix: '+', label: 'Years Experience' },
+    ]
+
+    return (
+        <section className="w-full bg-[#FFE600]">
+            <div className="max-w-[1500px] mx-auto px-[5%] py-16 md:py-20 lg:py-24">
+                <div className="flex flex-col md:flex-row">
+                    {stats.map((stat, i) => (
+                        <div
+                            key={i}
+                            className="relative flex-1 flex flex-col items-center justify-center text-center py-8 md:py-0"
+                        >
+                            {i > 0 && (
+                                <div className="absolute left-0 top-1/4 bottom-1/4 w-px bg-black/20 hidden md:block" />
+                            )}
+                            <CountUp value={stat.value} suffix={stat.suffix} textColor="text-black" />
+                            <p className="text-black/60 text-sm md:text-base lg:text-lg font-medium mt-1">
+                                {stat.label}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
     )
 }
 
@@ -184,94 +215,13 @@ function AboutThirdSection() {
     )
 }
 
-function AboutFourthSection() {
-    return (
-        <section className="w-full bg-black py-[80px] md:py-[96px] lg:py-[112px] border-t border-white/10">
-            <div className="max-w-[1500px] mx-auto px-[5%]">
-                <Reveal>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            <div className="mb-4">
-                                <div className="inline-block px-4 py-2 bg-[#FFE600] rounded-full">
-                                    <span className="text-black font-display text-sm uppercase tracking-[0.1em] font-bold">
-                                        Quality
-                                    </span>
-                                </div>
-                            </div>
-                            <h3 className="font-display text-white text-2xl md:text-3xl mb-4 leading-tight">
-                                Crafted with
-                                <br />
-                                Intention
-                            </h3>
-                            <p className="text-white/70 text-sm md:text-base leading-[1.7]">
-                                Every design decision is purposeful. We don't add complexity—we add clarity. Your brand deserves visuals that communicate effortlessly.
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            <div className="mb-4">
-                                <div className="inline-block px-4 py-2 bg-[#FFE600] rounded-full">
-                                    <span className="text-black font-display text-sm uppercase tracking-[0.1em] font-bold">
-                                        Strategy
-                                    </span>
-                                </div>
-                            </div>
-                            <h3 className="font-display text-white text-2xl md:text-3xl mb-4 leading-tight">
-                                Built on
-                                <br />
-                                Strategy
-                            </h3>
-                            <p className="text-white/70 text-sm md:text-base leading-[1.7]">
-                                Design without strategy is decoration. We align every visual with your business goals, audience insights, and long-term vision.
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            <div className="mb-4">
-                                <div className="inline-block px-4 py-2 bg-[#FFE600] rounded-full">
-                                    <span className="text-black font-display text-sm uppercase tracking-[0.1em] font-bold">
-                                        Results
-                                    </span>
-                                </div>
-                            </div>
-                            <h3 className="font-display text-white text-2xl md:text-3xl mb-4 leading-tight">
-                                Designed to
-                                <br />
-                                Deliver
-                            </h3>
-                            <p className="text-white/70 text-sm md:text-base leading-[1.7]">
-                                We measure success by your success. Our work helps brands feel recognized, trusted, and unforgettable in a crowded market.
-                            </p>
-                        </motion.div>
-                    </div>
-                </Reveal>
-            </div>
-        </section>
-    )
-}
-
 export default function AboutPage() {
     return (
         <main className="bg-black text-white min-h-screen overflow-x-hidden">
             <AboutHeroSection />
             <AboutSecondSection />
+            <StatsSection />
             <AboutThirdSection />
-            <AboutFourthSection />
             <Footer />
         </main>
     )
