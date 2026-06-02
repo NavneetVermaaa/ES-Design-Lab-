@@ -8,36 +8,49 @@ import aboutSectionBg from '@/assets/about-section-bg.png'
 
 function AboutHeroSection() {
     return (
-        <section className="relative w-full min-h-[82vh] bg-black overflow-hidden flex items-center px-[5%] pt-[100px] pb-[60px]">
-            <div className="w-full max-w-[1500px] mx-auto">
+        <section className="relative w-full min-h-[82vh] bg-black overflow-hidden px-[80px] pt-[130px] pb-[60px]">
+            <div className="w-full max-w-[1800px]">
                 <Reveal delay={0.08}>
-                    <p className="font-serif-i italic text-white text-[2.5rem] sm:text-[2.9rem] md:text-[3.3rem] leading-[0.95] mb-2">
+                    <p
+                        className="font-serif-i italic text-white leading-[0.95] mb-2"
+                        style={{ fontSize: 'clamp(3rem, 5vw, 5.5rem)' }}
+                    >
                         WE ARE
                     </p>
                 </Reveal>
 
                 <Reveal delay={0.14}>
                     <h1
-                        className="font-display uppercase text-[#FFE600] leading-[0.92]"
-                        style={{ fontSize: 'clamp(3.2rem, 7vw, 6.5rem)' }}
+                        className="font-display uppercase text-[#FFE600] leading-[0.9]"
+                        style={{ fontSize: 'clamp(4.5rem, 8vw, 7.5rem)' }}
+                    >
+                        A CREATIVE LAB FOR
+                    </h1>
+                </Reveal>
+
+                <Reveal delay={0.14}>
+                    <h1
+                        className="font-display uppercase text-[#FFE600] leading-[0.9]"
+                        style={{ fontSize: 'clamp(4.5rem, 8vw, 7.5rem)' }}
                     >
                         A CREATIVE LAB FOR
                     </h1>
                 </Reveal>
 
                 <Reveal delay={0.2}>
-                    <div className="flex flex-col lg:flex-row lg:items-end gap-4 lg:gap-10 mt-0">
-                        <h1
-                            className="font-display uppercase text-white leading-[0.92]"
-                            style={{ fontSize: 'clamp(3.2rem, 7vw, 6.5rem)' }}
-                        >
-                            MODERN BRANDS
-                        </h1>
-                        <p className="text-white/70 text-[0.95rem] md:text-[1rem] leading-[1.65] max-w-[300px] lg:pb-2">
-                            Over the years, we've helped businesses and creators build visuals that feel clear,
-                            consistent, and memorable.
-                        </p>
-                    </div>
+                    <h1
+                        className="font-display uppercase text-white leading-[0.9]"
+                        style={{ fontSize: 'clamp(4.5rem, 8vw, 7.5rem)' }}
+                    >
+                        MODERN BRANDS
+                    </h1>
+                </Reveal>
+
+                <Reveal delay={0.26}>
+                    <p className="text-white/70 text-[1rem] md:text-[1.1rem] leading-[1.65] max-w-[600px] mt-8">
+                        Over the years, we've helped businesses and creators build visuals that feel clear,
+                        consistent, and memorable.
+                    </p>
                 </Reveal>
             </div>
         </section>
