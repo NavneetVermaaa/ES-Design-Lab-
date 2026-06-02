@@ -2,7 +2,7 @@ import { Reveal } from '@/components/Reveal'
 import { Footer } from '@/components/site/Contact'
 import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import aboutSectionBg from '@/assets/about-section-bg.png'
+import aboutSectionBg from '@/assets/about-section-bg.svg'
 
 
 
@@ -17,15 +17,6 @@ function AboutHeroSection() {
                     >
                         WE ARE
                     </p>
-                </Reveal>
-
-                <Reveal delay={0.14}>
-                    <h1
-                        className="font-display uppercase text-[#FFE600] leading-[0.9]"
-                        style={{ fontSize: 'clamp(4.5rem, 8vw, 7.5rem)' }}
-                    >
-                        A CREATIVE LAB FOR
-                    </h1>
                 </Reveal>
 
                 <Reveal delay={0.14}>
