@@ -27,19 +27,23 @@ export const servicePages = {
         title: 'Exploration',
         body: 'Every strong brand starts with understanding. We explore your audience, positioning, and visual direction to build a foundation rooted in clarity.',
         fill: 'violet',
+        meta: 'Research · Audience · Positioning · Moodboard',
       },
       {
         title: 'Creation',
         body: 'This is where strategy becomes visual. We design identities that feel clear, distinctive, and built to last not just look good.',
+        meta: 'Logo · Colour · Typography · Brand Identity',
       },
       {
         title: 'Roll-out',
         body: "A brand only works when it's used properly. We apply your identity across essential touchpoints, so your brand feels familiar, professional, and aligned online and offline.",
+        meta: 'Stationery · Collateral · Digital · Guidelines',
       },
       {
         title: 'Building',
         body: 'We create systems that help your brand stay strong as you grow. Clear guidelines mean fewer mistakes, faster execution, and better brand recognition.',
         fill: 'yellow',
+        meta: 'Brand Systems · Templates · Playbook',
       },
     ],
     contactBg: '#9270f4',

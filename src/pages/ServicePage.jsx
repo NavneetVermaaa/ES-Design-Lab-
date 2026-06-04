@@ -2,6 +2,7 @@ import { Reveal } from '@/components/Reveal'
 import { Footer } from '@/components/site/Contact.jsx'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
+import brHeading from '@/assets/Br-heading.svg'
 
 const cardFill = {
   violet: 'bg-violet text-bone border-yellow',
@@ -12,22 +13,33 @@ const cardFill = {
 }
 
 function VideoPlaceholder({ tone }) {
+  const isBranding = tone === 'leaves'
   const leafGradient =
-    tone === 'leaves'
+    isBranding
       ? 'from-[#06140d] via-[#0c3f28] to-[#051009]'
       : 'from-[#1b3526] via-[#386844] to-[#102217]'
 
   return (
-    <Reveal className="mt-16 md:mt-20">
-      <div className={`relative aspect-[16/7] overflow-hidden bg-gradient-to-br ${leafGradient}`}>
-        <div className="absolute inset-0 opacity-45 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.22)_0_2px,transparent_3px),radial-gradient(circle_at_70%_55%,rgba(255,255,255,.18)_0_2px,transparent_3px)] [background-size:36px_28px,48px_44px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_28%,rgba(255,255,255,.12)_28%_29%,transparent_30%_100%)] bg-[length:180px_100%]" />
+    <Reveal instant={isBranding} className={isBranding ? 'mx-auto mt-12 max-w-[42rem] md:mt-14' : 'mt-16 md:mt-20'}>
+      <div className={`relative overflow-hidden bg-gradient-to-br ${leafGradient} ${isBranding ? 'aspect-[2.31/1]' : 'aspect-[16/7]'}`}>
+        {isBranding ? (
+          <>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(75,188,119,.95)_0_6%,transparent_16%),radial-gradient(circle_at_34%_18%,rgba(18,115,61,.95)_0_12%,transparent_30%),radial-gradient(circle_at_58%_5%,rgba(31,145,82,.85)_0_7%,transparent_19%),radial-gradient(circle_at_79%_42%,rgba(68,186,98,.9)_0_11%,transparent_26%),radial-gradient(circle_at_92%_23%,rgba(19,101,53,.82)_0_12%,transparent_29%),linear-gradient(115deg,rgba(3,22,14,.8),rgba(3,18,12,.25)_42%,rgba(4,12,9,.9))]" />
+            <div className="absolute inset-0 opacity-75 [background-image:linear-gradient(112deg,transparent_0_11%,rgba(117,219,151,.38)_11.3%,transparent_13.5%,transparent_28%,rgba(90,190,126,.33)_29%,transparent_31%,transparent_48%,rgba(110,210,139,.3)_49%,transparent_51%,transparent_68%,rgba(93,190,130,.32)_69%,transparent_71%)]" />
+            <div className="absolute inset-0 bg-black/35" />
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 opacity-45 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.22)_0_2px,transparent_3px),radial-gradient(circle_at_70%_55%,rgba(255,255,255,.18)_0_2px,transparent_3px)] [background-size:36px_28px,48px_44px]" />
+            <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_28%,rgba(255,255,255,.12)_28%_29%,transparent_30%_100%)] bg-[length:180px_100%]" />
+          </>
+        )}
         <button
           type="button"
           aria-label="Video placeholder"
-          className="absolute left-1/2 top-1/2 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[5px] border-bone/90 text-bone/95 md:h-28 md:w-28"
+          className="absolute left-1/2 top-1/2 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[4px] border-bone/90 text-bone/95 md:h-24 md:w-24"
         >
-          <span className="ml-1 h-0 w-0 border-y-[15px] border-l-[24px] border-y-transparent border-l-bone md:border-y-[20px] md:border-l-[32px]" />
+          <span className="ml-1 h-0 w-0 border-y-[15px] border-l-[24px] border-y-transparent border-l-bone md:border-y-[18px] md:border-l-[29px]" />
         </button>
       </div>
     </Reveal>
@@ -35,6 +47,81 @@ function VideoPlaceholder({ tone }) {
 }
 
 function ServiceCards({ service }) {
+  const isBranding = service.key === 'branding'
+
+  if (isBranding) {
+    const cardStyle = [
+      'bg-[#5E4A96] text-bone border-[#FFE600]',
+      'bg-black text-bone border-[#FFE600]',
+      'bg-black text-bone border-[#FFE600]',
+      'bg-[#FFE600] text-ink border-[#FFE600]',
+    ]
+
+    const headingColor = [
+      'text-[#FFE600]',
+      'text-[#FFE600]',
+      'text-[#FFE600]',
+      'text-black',
+    ]
+
+    const raised = (index) => index === 0 || index === 3
+
+    const baseShadow = (index) =>
+      raised(index)
+        ? index === 0
+          ? '0 28px 55px rgba(94,74,150,0.42)'
+          : '0 28px 55px rgba(255,230,0,0.25)'
+        : '0px 0px 0px rgba(0,0,0,0)'
+
+    return (
+      <div className="-mx-4 mt-14 grid gap-2 pt-6 sm:grid-cols-2 md:grid-cols-4">
+        {service.cards.map((card, index) => (
+          <div key={card.title}>
+            <motion.article
+              className={`flex min-h-[218px] flex-col border-2 p-4 lg:min-h-[300px] lg:p-6 ${
+                cardStyle[index]
+              } ${index === 0 ? 'rounded-[2rem_2rem_0_2rem]' : ''} ${
+                index === 1 || index === 2 ? 'rounded-[2rem_2rem_0_0]' : ''
+              } ${index === 3 ? 'rounded-[2rem_2rem_2rem_0]' : ''}`}
+              initial={{ y: raised(index) ? -24 : 0, boxShadow: baseShadow(index) }}
+              animate={{ y: raised(index) ? -24 : 0, boxShadow: baseShadow(index) }}
+              whileHover={
+                raised(index)
+                  ? index === 0
+                    ? { y: -24, scale: 1.015, boxShadow: '0 30px 70px rgba(94,74,150,0.5)' }
+                    : { y: -24, scale: 1.015, boxShadow: '0 30px 70px rgba(255,230,0,0.35)' }
+                  : { y: -20, scale: 1.015, boxShadow: '0 25px 60px rgba(255,230,0,0.25)' }
+              }
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h3
+                className={`font-display text-[clamp(1rem,2.5vw,1.875rem)] uppercase leading-none tracking-normal lg:text-3xl ${headingColor[index]}`}
+              >
+                {index + 1}. {card.title}
+              </h3>
+              <p
+                className={`mt-5 text-[0.64rem] font-medium leading-relaxed lg:text-sm ${
+                  index === 3 ? 'text-ink/80' : 'text-bone/85'
+                }`}
+              >
+                {card.body}
+              </p>
+              {card.meta ? (
+                <p
+                  className={`mt-auto pt-5 text-[0.58rem] font-bold leading-relaxed tracking-wide lg:text-xs ${
+                    index === 3 ? 'text-ink/70' : 'text-bone/70'
+                  }`}
+                >
+                  {card.meta}
+                </p>
+              ) : null}
+            </motion.article>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
   return (
     <div className="mt-16 grid gap-3 md:mt-20 md:grid-cols-4 md:gap-4">
       {service.cards.map((card, index) => {
@@ -64,6 +151,7 @@ function ServiceCards({ service }) {
 function ContactForm({ service }) {
   const [status, setStatus] = useState('idle')
   const formRef = useRef(null)
+  const isBranding = service.key === 'branding'
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -111,16 +199,21 @@ function ContactForm({ service }) {
         { label: 'Name', name: 'name', type: 'text', placeholder: 'Your name' },
         { label: 'Email', name: 'email', type: 'email', placeholder: 'Your email' },
         { label: 'Message', name: 'message', type: 'textarea', placeholder: 'Your message' },
-      ].map((field) => (
+      ].map((field) => {
+        const displayField = isBranding
+          ? { ...field, label: 'Name', placeholder: 'Your name' }
+          : field
+
+        return (
         <label key={field.name} className="block border-b border-current/55 pb-5">
-          <span className="block text-sm font-bold uppercase tracking-[0.08em]">{field.label}</span>
+          <span className="block text-sm font-bold uppercase tracking-[0.08em]">{displayField.label}</span>
           {field.type === 'textarea' ? (
             <textarea
               required
               name={field.name}
               rows={3}
               disabled={status === 'sending'}
-              placeholder={field.placeholder}
+              placeholder={displayField.placeholder}
               className="mt-1 w-full resize-none bg-transparent text-lg outline-none placeholder:text-current/70 disabled:opacity-50"
             />
           ) : (
@@ -129,12 +222,12 @@ function ContactForm({ service }) {
               type={field.type}
               name={field.name}
               disabled={status === 'sending'}
-              placeholder={field.placeholder}
+              placeholder={displayField.placeholder}
               className="mt-1 w-full bg-transparent text-lg outline-none placeholder:text-current/70 disabled:opacity-50"
             />
           )}
         </label>
-      ))}
+      )})}
 
       <div className="min-h-14 pt-4">
         {status !== 'sent' ? (
@@ -143,7 +236,10 @@ function ContactForm({ service }) {
             disabled={status === 'sending'}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className={`h-11 min-w-44 rounded-pill ${service.contactButton} text-ink disabled:opacity-60`}
+            aria-label="Send"
+            className={`h-11 min-w-44 rounded-pill ${service.contactButton} ${
+              isBranding ? 'text-transparent' : 'text-ink'
+            } disabled:opacity-60`}
           >
             {status === 'sending' ? 'Sending' : 'Send'}
           </motion.button>
@@ -162,38 +258,71 @@ function ContactForm({ service }) {
 }
 
 export default function ServicePage({ service }) {
+  const heroHeading = (
+    <h1 className="max-w-5xl font-display text-[clamp(3rem,8vw,8.8rem)] uppercase leading-[0.95] tracking-normal">
+      {service.heroText.map((line, index) => (
+        <span
+          key={line}
+          className={`block ${
+            service.heroAccentLines.includes(index)
+              ? service.heroTextClass
+              : service.heroSecondaryClass
+          }`}
+        >
+          {line}
+        </span>
+      ))}
+    </h1>
+  )
+
   return (
-    <main className="bg-ink text-bone">
-      <section
-        className="relative flex min-h-[52rem] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
-        style={{ backgroundColor: service.heroBg }}
-      >
-        <div className={`absolute left-[9%] top-[12%] h-[28rem] w-[28rem] rounded-full ${service.shapeClass}`} />
-        <div className={`absolute right-[22%] top-[47%] h-56 w-56 rounded-full ${service.circleClass}`} />
-        <div className={`absolute right-0 top-[47%] h-44 w-[28%] ${service.shapeClass}`} />
+    <main className="bg-ink text-bone overflow-x-hidden">
+      {service.key === 'branding' ? (
+        <section
+          className="relative isolate flex h-[clamp(26rem,52.5vw,42rem)] max-h-[100svh] min-h-[24rem] w-full items-start justify-center md:justify-start overflow-hidden px-6 md:px-[8.5%] pt-24 md:pt-[8.1rem]"
+          style={{ backgroundColor: service.heroBg }}
+        >
+          <img
+            src={brHeading}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+          />
+          <motion.div
+            className="relative z-10 w-full flex justify-center md:justify-start"
+            initial={{ y: 22 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
+          >
+            <h1 className="font-display text-[clamp(3rem,9vw,8.1rem)] uppercase leading-[0.94] tracking-normal text-center md:text-left">
+              <span className="block text-[#FFE600]">Brands Built</span>
+              <span className="block text-white">with Intention</span>
+            </h1>
+          </motion.div>
+        </section>
+      ) : (
+        <section
+          className="relative flex min-h-[52rem] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
+          style={{ backgroundColor: service.heroBg }}
+        >
+          <div className={`absolute left-[9%] top-[12%] h-[28rem] w-[28rem] rounded-full ${service.shapeClass}`} />
+          <div className={`absolute right-[22%] top-[47%] h-56 w-56 rounded-full ${service.circleClass}`} />
+          <div className={`absolute right-0 top-[47%] h-44 w-[28%] ${service.shapeClass}`} />
 
-        <Reveal className="relative z-10 mx-auto w-full max-w-7xl">
-          <h1 className="max-w-5xl font-display text-[4.7rem] uppercase leading-[0.95] md:text-[7.5rem] lg:text-[8.8rem]">
-            {service.heroText.map((line, index) => (
-              <span
-                key={line}
-                className={`block ${
-                  service.heroAccentLines.includes(index)
-                    ? service.heroTextClass
-                    : service.heroSecondaryClass
-                }`}
-              >
-                {line}
-              </span>
-            ))}
-          </h1>
-        </Reveal>
-      </section>
+          <Reveal className="relative z-10 mx-auto w-full max-w-7xl">{heroHeading}</Reveal>
+        </section>
+      )}
 
-      <section className="px-6 py-20 md:px-10 md:py-28">
+      <section className={`px-6 md:px-10 ${
+        service.key === 'branding' ? 'py-16 md:pb-12 md:pt-[4.35rem]' : 'py-20 md:py-28'
+      }`}>
         <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <div className="max-w-5xl text-xl font-semibold leading-relaxed text-bone/85 md:text-2xl">
+          <Reveal instant={service.key === 'branding'}>
+            <div className={`max-w-5xl text-xl font-semibold leading-relaxed md:text-2xl ${
+              service.key === 'branding'
+                ? 'text-[clamp(0.85rem,2.5vw,1rem)] leading-relaxed text-white md:max-w-[42rem]'
+                : 'text-bone/85'
+            }`}>
               {service.intro.quoteFirst ? (
                 <p className="mb-7 font-serif-i text-4xl leading-tight text-yellow md:text-5xl">
                   {service.intro.quoteFirst}
@@ -212,7 +341,9 @@ export default function ServicePage({ service }) {
               ))}
 
               {service.intro.quote ? (
-                <p className="mt-8 font-serif-i text-4xl leading-tight text-yellow md:text-5xl">
+                <p className={`mt-8 font-serif-i leading-tight text-yellow ${
+                  service.key === 'branding' ? 'text-[clamp(1.25rem,2.8vw,1.75rem)]' : 'text-4xl md:text-5xl'
+                }`}>
                   {service.intro.quote}
                 </p>
               ) : null}
@@ -257,9 +388,9 @@ export default function ServicePage({ service }) {
 
       <section className="px-6 py-20 md:px-10 md:py-28" style={{ backgroundColor: service.contactBg }}>
         <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 md:items-start">
-          <Reveal>
+          <Reveal instant={service.key === 'branding'}>
             <div>
-              <h2 className={`font-display text-6xl uppercase leading-[0.88] md:text-8xl ${service.contactText}`}>
+              <h2 className={`font-display text-[clamp(2.5rem,7vw,6rem)] uppercase leading-[0.88] md:text-8xl ${service.contactText}`}>
                 Ready to <br />
                 <span className="font-serif-i lowercase">build</span> your <br />
                 brand?
@@ -272,7 +403,7 @@ export default function ServicePage({ service }) {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={0.12}>
+          <Reveal instant={service.key === 'branding'} delay={0.12}>
             <ContactForm service={service} />
           </Reveal>
         </div>

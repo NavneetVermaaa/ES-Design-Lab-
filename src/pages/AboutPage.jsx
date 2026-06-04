@@ -29,19 +29,18 @@ function AboutHeroSection() {
                 </Reveal>
 
                 <Reveal delay={0.2}>
-                    <h1
-                        className="font-display uppercase text-white leading-[0.9]"
-                        style={{ fontSize: 'clamp(4.5rem, 8vw, 7.5rem)' }}
-                    >
-                        MODERN BRANDS
-                    </h1>
-                </Reveal>
-
-                <Reveal delay={0.26}>
-                    <p className="text-white/70 text-[1rem] md:text-[1.1rem] leading-[1.65] max-w-[600px] mt-8">
-                        Over the years, we've helped businesses and creators build visuals that feel clear,
-                        consistent, and memorable.
-                    </p>
+                    <div className="flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12">
+                        <h1
+                            className="font-display uppercase text-white leading-[0.9]"
+                            style={{ fontSize: 'clamp(4.5rem, 8vw, 7.5rem)' }}
+                        >
+                            MODERN BRANDS
+                        </h1>
+                        <p className="text-white/70 text-[1rem] md:text-[1.1rem] leading-[1.65] w-full lg:w-[400px] shrink-0">
+                            Over the years, we've helped businesses and creators build visuals that feel clear,
+                            consistent, and memorable.
+                        </p>
+                    </div>
                 </Reveal>
             </div>
         </section>
@@ -50,11 +49,11 @@ function AboutHeroSection() {
 
 function AboutSecondSection() {
     return (
-        <section className="w-full">
+        <section className="w-screen" style={{ backgroundColor: 'rgb(143 101 251)' }}>
             <img
                 src={aboutSectionBg}
                 alt="About Us Section"
-                className="w-full h-auto block"
+                className="w-full h-auto block align-bottom"
             />
         </section>
     )

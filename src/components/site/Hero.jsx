@@ -25,7 +25,7 @@ export function Nav() {
         <div className="flex items-center gap-10 mix-blend-difference">
           <nav className="hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.18em] text-bone">
             <a href="/#work" className="hover:text-yellow transition-colors">Work</a>
-            <a href="/#expertise" className="hover:text-yellow transition-colors">Expertise</a>
+            <a href="/#expertise" className="hover:text-yellow transition-colors">Services</a>
             <a href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">About</a>
             <a href="/#contact" className="hover:text-yellow transition-colors">Contact</a>
           </nav>
@@ -48,18 +48,18 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   return (
-    <section ref={ref} id="top" className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden grain">
+    <section ref={ref} id="top" className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden grain before:absolute before:inset-0 before:pointer-events-none before:z-0 before:bg-[linear-gradient(to_left,rgba(159,101,251,0.15)_0%,rgba(159,101,251,0.15)_8%,transparent_8%)]">
       {/* Floating eyebrow */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.8 }}
-        className="absolute top-32 md:top-40 left-6 md:left-10 right-6 md:right-10 flex justify-end text-xs uppercase tracking-[0.25em] text-bone/60"
+        className="absolute top-32 md:top-40 left-6 md:left-10 right-6 md:right-10 flex justify-end text-xs uppercase tracking-[0.25em] text-bone/60 z-10"
       >
-       
+
       </motion.div>
 
-      <motion.div style={{ y, opacity }} className="px-6 md:px-10 pb-16 md:pb-24">
+      <motion.div style={{ y, opacity }} className="px-6 md:px-10 pb-16 md:pb-24 relative z-10">
         <h1 className="font-display text-bone leading-[0.85] text-[18vw] md:text-[14vw] uppercase">
           {'Built to'.split('').map((ch, i) => (
             <motion.span
@@ -125,7 +125,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="absolute bottom-6 right-6 md:right-10 text-[10px] uppercase tracking-[0.3em] text-bone/40"
+        className="absolute bottom-6 right-6 md:right-10 text-[10px] uppercase tracking-[0.3em] text-bone/40 z-10"
       >
       </motion.div>
     </section>
