@@ -50,68 +50,37 @@ function ServiceCards({ service }) {
   const isBranding = service.key === 'branding'
 
   if (isBranding) {
-    const cardStyle = [
-      'bg-[#5E4A96] text-bone border-[#FFE600]',
-      'bg-black text-bone border-[#FFE600]',
-      'bg-black text-bone border-[#FFE600]',
-      'bg-[#FFE600] text-ink border-[#FFE600]',
-    ]
-
-    const headingColor = [
-      'text-[#FFE600]',
-      'text-[#FFE600]',
-      'text-[#FFE600]',
-      'text-black',
-    ]
-
-    const raised = (index) => index === 0 || index === 3
-
-    const baseShadow = (index) =>
-      raised(index)
-        ? index === 0
-          ? '0 28px 55px rgba(94,74,150,0.42)'
-          : '0 28px 55px rgba(255,230,0,0.25)'
-        : '0px 0px 0px rgba(0,0,0,0)'
+    const borderRound = (index) => {
+      if (index === 0) return 'rounded-[2rem_2rem_0_2rem]'
+      if (index === 1 || index === 2) return 'rounded-[2rem_2rem_0_0]'
+      if (index === 3) return 'rounded-[2rem_2rem_2rem_0]'
+      return ''
+    }
 
     return (
       <div className="-mx-4 mt-14 grid gap-2 pt-6 sm:grid-cols-2 md:grid-cols-4">
         {service.cards.map((card, index) => (
           <div key={card.title}>
             <motion.article
-              className={`flex min-h-[218px] flex-col border-2 p-4 lg:min-h-[300px] lg:p-6 ${
-                cardStyle[index]
-              } ${index === 0 ? 'rounded-[2rem_2rem_0_2rem]' : ''} ${
-                index === 1 || index === 2 ? 'rounded-[2rem_2rem_0_0]' : ''
-              } ${index === 3 ? 'rounded-[2rem_2rem_2rem_0]' : ''}`}
-              initial={{ y: raised(index) ? -24 : 0, boxShadow: baseShadow(index) }}
-              animate={{ y: raised(index) ? -24 : 0, boxShadow: baseShadow(index) }}
-              whileHover={
-                raised(index)
-                  ? index === 0
-                    ? { y: -24, scale: 1.015, boxShadow: '0 30px 70px rgba(94,74,150,0.5)' }
-                    : { y: -24, scale: 1.015, boxShadow: '0 30px 70px rgba(255,230,0,0.35)' }
-                  : { y: -20, scale: 1.015, boxShadow: '0 25px 60px rgba(255,230,0,0.25)' }
-              }
+              className={`flex min-h-[218px] flex-col border-2 p-4 lg:min-h-[300px] lg:p-6 bg-black text-bone border-[#FFE600] ${borderRound(index)}`}
+              initial={{ y: 0, backgroundColor: '#000000', boxShadow: '0px 0px 0px rgba(0,0,0,0)' }}
+              animate={{ y: 0, backgroundColor: '#000000', boxShadow: '0px 0px 0px rgba(0,0,0,0)' }}
+              whileHover={{
+                y: -10,
+                scale: 1.015,
+                backgroundColor: '#5E4A96',
+                boxShadow: '0 20px 45px rgba(255,230,0,0.18)',
+              }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h3
-                className={`font-display text-[clamp(1rem,2.5vw,1.875rem)] uppercase leading-none tracking-normal lg:text-3xl ${headingColor[index]}`}
-              >
+              <h3 className="font-display text-[clamp(1rem,2.5vw,1.875rem)] uppercase leading-none tracking-normal lg:text-3xl text-[#FFE600]">
                 {index + 1}. {card.title}
               </h3>
-              <p
-                className={`mt-5 text-[0.64rem] font-medium leading-relaxed lg:text-sm ${
-                  index === 3 ? 'text-ink/80' : 'text-bone/85'
-                }`}
-              >
+              <p className="mt-5 text-[0.64rem] font-medium leading-relaxed lg:text-sm text-bone/85">
                 {card.body}
               </p>
               {card.meta ? (
-                <p
-                  className={`mt-auto pt-5 text-[0.58rem] font-bold leading-relaxed tracking-wide lg:text-xs ${
-                    index === 3 ? 'text-ink/70' : 'text-bone/70'
-                  }`}
-                >
+                <p className="mt-auto pt-5 text-[0.58rem] font-bold leading-relaxed tracking-wide lg:text-xs text-bone/70">
                   {card.meta}
                 </p>
               ) : null}
