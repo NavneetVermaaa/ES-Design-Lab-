@@ -48,7 +48,7 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   return (
-    <section ref={ref} id="top" className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden grain before:absolute before:inset-0 before:pointer-events-none before:z-0 before:bg-[linear-gradient(to_left,rgba(159,101,251,0.15)_0%,rgba(159,101,251,0.15)_8%,transparent_8%)]">
+    <section ref={ref} id="top" className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden grain">
       {/* Floating eyebrow */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

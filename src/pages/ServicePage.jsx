@@ -305,6 +305,7 @@ export default function ServicePage({ service }) {
             alt=""
             aria-hidden="true"
             className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+            style={{ backgroundColor: '#8F65FB' }}
           />
           <motion.div
             className="relative z-10 w-full flex justify-center md:justify-start"
