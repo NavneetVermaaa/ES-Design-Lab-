@@ -48,6 +48,8 @@ function VideoPlaceholder({ tone }) {
 
 function ServiceCards({ service }) {
   const isBranding = service.key === 'branding'
+  const isVisualDesign = service.key === 'visual-design'
+  const isVideoEditing = service.key === 'video-editing'
 
   if (isBranding) {
     const borderRound = (index) => {
@@ -64,7 +66,6 @@ function ServiceCards({ service }) {
             <motion.article
               className={`flex min-h-[218px] flex-col border-2 p-4 lg:min-h-[300px] lg:p-6 bg-black text-bone border-[#FFE600] ${borderRound(index)}`}
               initial={{ y: 0, backgroundColor: '#000000', boxShadow: '0px 0px 0px rgba(0,0,0,0)' }}
-              animate={{ y: 0, backgroundColor: '#000000', boxShadow: '0px 0px 0px rgba(0,0,0,0)' }}
               whileHover={{
                 y: -10,
                 scale: 1.015,
@@ -86,6 +87,54 @@ function ServiceCards({ service }) {
               ) : null}
             </motion.article>
           </div>
+        ))}
+      </div>
+    )
+  }
+
+  if (isVideoEditing) {
+    return (
+      <div className="mt-16 grid gap-3 md:mt-20 md:grid-cols-4 md:gap-4">
+        {service.cards.map((card, index) => (
+          <Reveal key={card.title} delay={index * 0.06}>
+            <article
+              className={`flex min-h-[230px] flex-col rounded-[2.4rem_2.4rem_0_0] border-2 p-6 md:min-h-[280px] md:p-7 bg-black text-bone border-[#FFE600] will-change-transform transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#f04a2a] hover:shadow-[0_20px_45px_rgba(240,74,42,0.25)] hover:-translate-y-[10px] hover:scale-[1.015] ${
+                index === 0 ? 'rounded-bl-[2.4rem]' : ''
+              } ${index === service.cards.length - 1 ? 'rounded-br-[2.4rem]' : ''}`}
+            >
+              <h3 className="font-display text-3xl uppercase leading-none md:text-4xl text-[#FFE600]">
+                {index + 1}. {card.title}
+              </h3>
+              <p className="mt-8 text-sm font-medium leading-relaxed opacity-85">{card.body}</p>
+              {card.meta ? (
+                <p className="mt-auto pt-6 text-xs font-bold leading-relaxed opacity-85">{card.meta}</p>
+              ) : null}
+            </article>
+          </Reveal>
+        ))}
+      </div>
+    )
+  }
+
+  if (isVisualDesign) {
+    return (
+      <div className="mt-16 grid gap-3 md:mt-20 md:grid-cols-4 md:gap-4">
+        {service.cards.map((card, index) => (
+          <Reveal key={card.title} delay={index * 0.06}>
+            <article
+              className={`flex min-h-[230px] flex-col rounded-[2.4rem_2.4rem_0_0] border-2 p-6 md:min-h-[280px] md:p-7 bg-black text-bone border-[#FFE600] will-change-transform transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#D8EF58] hover:shadow-[0_20px_45px_rgba(216,239,88,0.25)] hover:-translate-y-[10px] hover:scale-[1.015] ${
+                index === 0 ? 'rounded-bl-[2.4rem]' : ''
+              } ${index === service.cards.length - 1 ? 'rounded-br-[2.4rem]' : ''}`}
+            >
+              <h3 className="font-display text-3xl uppercase leading-none md:text-4xl text-[#FFE600]">
+                {index + 1}. {card.title}
+              </h3>
+              <p className="mt-8 text-sm font-medium leading-relaxed opacity-85">{card.body}</p>
+              {card.meta ? (
+                <p className="mt-auto pt-6 text-xs font-bold leading-relaxed opacity-85">{card.meta}</p>
+              ) : null}
+            </article>
+          </Reveal>
         ))}
       </div>
     )
