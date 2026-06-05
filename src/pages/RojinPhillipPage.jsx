@@ -20,6 +20,8 @@ import boxImage from '../../assets/Project1/Box.png'
 import blackBoxImage from '../../assets/Project1/Black Box.png'
 import websiteImage from '../../assets/Project1/Website.png'
 import socialMediaImage from '../../assets/Project1/Social media.png'
+import colorsFamilyImage from '../../assets/Project1/4.png'
+import rpAnimation from '../../assets/Project1/RP animation.mp4'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
@@ -30,7 +32,7 @@ const keywords = ['Luxury', 'Heritage', 'Prestige', 'Timeless', 'Sophisticated']
 
 const brandCollage = [
   { src: modelImage, title: 'Luxury wardrobe', className: '' },
-  { src: productsShootImage, title: 'Leather goods', className: 'col-span-2' },
+  { src: productsShootImage, title: 'Leather goods', className: 'col-span-2 row-span-1' },
   { src: blueLogoImage, title: 'Wordmark', className: '' },
   { src: productImage, title: 'Hardware detail', className: '' },
   { src: circleLogoImage, title: 'Seal mark', className: '' },
@@ -42,17 +44,7 @@ const developmentImages = [
   { src: patternImage, title: 'Brand pattern' },
 ]
 
-const gallery = [
-  { src: stationaryImage, title: 'Stationery System', className: 'md:col-span-2 md:row-span-2', imgClass: 'object-cover' },
-  { src: visitingCardImage, title: 'Visiting Cards', className: 'md:col-span-2', imgClass: 'object-cover' },
-  { src: boxImage, title: 'Packaging Box', className: '', imgClass: 'object-contain p-4', frameClass: 'bg-[#f3f0ea]' },
-  { src: keychainImage, title: 'Leather Keychain', className: '', imgClass: 'object-contain p-4', frameClass: 'bg-[#f3f0ea]' },
-  { src: tagsImage, title: 'Product Tags', className: 'md:row-span-2', imgClass: 'object-contain p-4', frameClass: 'bg-[#062b52]' },
-  { src: blackBoxImage, title: 'Black Box', className: '', imgClass: 'object-contain p-4', frameClass: 'bg-[#f3f0ea]' },
-  { src: circleLogoImage, title: 'Circular Seal', className: 'md:col-span-2', imgClass: 'object-contain p-8', frameClass: 'bg-white' },
-  { src: productImage, title: 'Gold Hardware', className: '', imgClass: 'object-cover' },
-  { src: productsShootImage, title: 'Product Family', className: 'md:col-span-2', imgClass: 'object-contain p-3', frameClass: 'bg-[#0d0d10]' },
-]
+
 
 function RevealBlock({ children, className = '', delay = 0 }) {
   return (
@@ -148,13 +140,13 @@ export default function RojinPhillipPage() {
 
       <section className="px-6 py-14 md:px-10 md:py-20">
         <div className="mx-auto max-w-6xl border-b border-bone/15 pb-12">
-          <RevealBlock className="mb-6 flex flex-wrap gap-2">
+          {/* <RevealBlock className="mb-6 flex flex-wrap gap-2">
             {['Logo Design', 'Brand Identity Design', 'Packaging Design'].map((tag) => (
               <span key={tag} className="rounded-pill border border-[#ead6b4]/25 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#ead6b4]/80">
                 {tag}
               </span>
             ))}
-          </RevealBlock>
+          </RevealBlock> */}
 
           <div className="grid gap-10 md:grid-cols-2 md:gap-16">
             <RevealBlock>
@@ -212,7 +204,13 @@ export default function RojinPhillipPage() {
                 <img
                   src={item.src}
                   alt={`Rojin Phillip ${item.title}`}
-                  className="aspect-square h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`
+                    h-full w-full transition-transform duration-700 group-hover:scale-105
+                    ${item.title === 'Leather goods'
+                      ? 'object-contain bg-[#0d0d10]'
+                      : 'object-cover aspect-square'
+                    }
+                  `}
                 />
               </motion.figure>
             ))}
@@ -259,29 +257,12 @@ export default function RojinPhillipPage() {
             </p>
           </RevealBlock>
 
-          <RevealBlock delay={0.08} className="mt-10 bg-[#062b52] px-6 py-10 md:px-12 md:py-14">
-            <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-              <div>
-                <p className="font-serif text-3xl uppercase leading-none text-[#e8c48c] md:text-5xl">
-                  Colors
-                  <br />
-                  Family
-                </p>
-                <div className="mt-7 grid max-w-sm grid-cols-3 gap-3">
-                  {[
-                    ['#0C2D50', 'Deep Navy'],
-                    ['#E8C48C', 'Heritage Gold'],
-                    ['#E8DFCF', 'Warm Bone'],
-                  ].map(([color, label]) => (
-                    <div key={label} className="space-y-2">
-                      <div className="aspect-square border border-bone/15" style={{ backgroundColor: color }} />
-                      <p className="text-[10px] uppercase tracking-[0.16em] text-bone/60">{label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <img src={blueLogoImage} alt="Rojin Phillip logo on blue" className="w-full object-contain" />
-            </div>
+          <RevealBlock delay={0.08} className="mt-10">
+            <img
+              src={colorsFamilyImage}
+              alt="Rojin Phillip Colors Family"
+              className="w-full h-auto object-cover"
+            />
           </RevealBlock>
 
           <RevealBlock delay={0.08} className="border-b border-bone/15 py-12 text-center md:py-16">
@@ -306,26 +287,101 @@ export default function RojinPhillipPage() {
             </p>
           </RevealBlock>
 
-          <div className="grid auto-rows-[260px] grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4 md:auto-rows-[190px]">
-            {gallery.map((item, index) => (
-              <motion.figure
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: index * 0.05, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                className={`group relative overflow-hidden ${item.frameClass || 'bg-[#0d0d10]'} ${item.className}`}
-              >
+          <div className="space-y-3">
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="group relative overflow-hidden bg-[#f3f0ea]">
                 <img
-                  src={item.src}
-                  alt={`Rojin Phillip ${item.title}`}
-                  className={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${item.imgClass || 'object-cover'}`}
+                  src={stationaryImage}
+                  alt="Stationery"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/85 to-transparent p-4 text-xs uppercase tracking-[0.2em] text-bone/75 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  {item.title}
-                </figcaption>
-              </motion.figure>
-            ))}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/50 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <p className="text-xs uppercase tracking-[0.2em] text-bone/80">
+                    Stationery System
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3">
+                <div className="group relative overflow-hidden bg-[#f3f0ea]">
+                  <img
+                    src={visitingCardImage}
+                    alt="Visiting Card"
+                    className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/90 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <p className="text-xs uppercase tracking-[0.2em] text-bone/80">
+                      Visiting Cards
+                    </p>
+                  </div>
+                </div>
+                <div className="group relative overflow-hidden bg-[#f3f0ea]">
+                  <img
+                    src={boxImage}
+                    alt="Packaging Box"
+                    className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/90 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <p className="text-xs uppercase tracking-[0.2em] text-bone/80">
+                      Packaging Box
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-3 gap-3">
+              <div className="group relative overflow-hidden bg-[#f3f0ea]">
+                <img
+                  src={blackBoxImage}
+                  alt="Black Box"
+                  className="w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/90 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <p className="text-xs uppercase tracking-[0.2em] text-bone/80">
+                    Black Box
+                  </p>
+                </div>
+              </div>
+              <div className="group relative overflow-hidden bg-[#f3f0ea]">
+                <img
+                  src={keychainImage}
+                  alt="Keychain"
+                  className="w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/90 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <p className="text-xs uppercase tracking-[0.2em] text-bone/80">
+                    Leather Keychain
+                  </p>
+                </div>
+              </div>
+              <div className="group relative overflow-hidden bg-[#062b52]">
+                <img
+                  src={tagsImage}
+                  alt="Tags"
+                  className="w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/90 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <p className="text-xs uppercase tracking-[0.2em] text-bone/80">
+                    Product Tags
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden bg-black">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full transition-transform duration-700 group-hover:scale-[1.02]"
+              >
+                <source src={rpAnimation} type="video/mp4" />
+              </video>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/90 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <p className="text-xs uppercase tracking-[0.2em] text-bone/80">
+                  Brand Animation
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
