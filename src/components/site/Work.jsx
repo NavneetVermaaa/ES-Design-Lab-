@@ -38,11 +38,13 @@ export default function Work() {
       {/* Horizontal scrolling cards */}
       <motion.div style={{ x }} className="mt-16 flex gap-6 md:gap-8 px-6 md:px-10 w-max">
         {projects.map((p, i) => (
-          <motion.figure
+          <motion.a
             key={i}
+            href="/work"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.4 }}
             className="group relative w-[78vw] md:w-[44vw] lg:w-[36vw] shrink-0"
+            aria-label={`View work projects including ${p.title}`}
           >
             <div className="relative overflow-hidden rounded-3xl bg-ink aspect-[4/3]">
               <motion.img
@@ -57,7 +59,7 @@ export default function Work() {
               <h3 className="font-display text-2xl md:text-3xl uppercase">{p.title}</h3>
               <span className="text-xs uppercase tracking-[0.2em] text-ink/60">{p.tag}</span>
             </figcaption>
-          </motion.figure>
+          </motion.a>
         ))}
       </motion.div>
     </section>

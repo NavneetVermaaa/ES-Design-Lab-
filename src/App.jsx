@@ -2,10 +2,11 @@ import MainLayout from '@/layouts/MainLayout.jsx'
 import Home from '@/pages/Home.jsx'
 import ServicePage from '@/pages/ServicePage.jsx'
 import WorkPage from '@/pages/WorkPage.jsx'
+import RojinPhillipPage from '@/pages/RojinPhillipPage.jsx'
 import AboutPage from '@/pages/AboutPage.jsx'
 import { servicePages } from '@/data/services.js'
-import { getPageMetaTags, getServiceMetaTags } from '@/lib/seo.js'
-import { getServiceSchema } from '@/lib/seoConfig.js'
+import { getCaseStudyMetaTags, getPageMetaTags, getServiceMetaTags } from '@/lib/seo.js'
+import { getCreativeWorkSchema, getServiceSchema } from '@/lib/seoConfig.js'
 
 export default function App() {
   const path = window.location.pathname.replace(/\/$/, '') || '/'
@@ -14,7 +15,20 @@ export default function App() {
   // Determine SEO data based on current path
   let seoData = {}
 
-  if (path === '/about') {
+  if (path === '/work/rojin-phillip') {
+    const caseStudy = {
+      name: 'Rojin Phillip',
+      slug: 'rojin-phillip',
+      description: 'Luxury fashion brand identity case study for Rojin Phillip by ES Design Lab.',
+      services: ['Logo Design', 'Brand Identity', 'Packaging Design'],
+    }
+    seoData = getCaseStudyMetaTags(caseStudy)
+    seoData.structuredData = getCreativeWorkSchema({
+      ...caseStudy,
+      image: seoData.image,
+      tags: caseStudy.services,
+    })
+  } else if (path === '/about') {
     seoData = getPageMetaTags('about')
   } else if (path === '/work') {
     seoData = getPageMetaTags('work')
@@ -30,7 +44,7 @@ export default function App() {
 
   return (
     <MainLayout seoData={seoData}>
-      {path === '/about' ? <AboutPage /> : path === '/work' ? <WorkPage /> : service ? <ServicePage service={service} /> : <Home />}
+      {path === '/about' ? <AboutPage /> : path === '/work/rojin-phillip' ? <RojinPhillipPage /> : path === '/work' ? <WorkPage /> : service ? <ServicePage service={service} /> : <Home />}
     </MainLayout>
   )
 }

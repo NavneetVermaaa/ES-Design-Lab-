@@ -16,9 +16,10 @@ import grand5 from '@/assets/work-grand5.jpg'
 import billboard from '@/assets/work-billboard.jpg'
 import train from '@/assets/work-train.jpg'
 import ashita from '@/assets/work-ashita.jpg'
+import rojinHero from '../../assets/Project1/1.png'
 
 const projects = [
-  { id: 1, title: 'Grand 5', category: 'Branding', img: grand5, size: 'large' },
+  { id: 1, title: 'Rojin Phillip', category: 'Branding', img: rojinHero, size: 'large', href: '/work/rojin-phillip' },
   { id: 2, title: 'Cashly', category: 'Visual Design', img: billboard, size: 'square' },
   { id: 3, title: 'Atelier Rouge', category: 'Branding', img: train, size: 'portrait' },
   { id: 4, title: 'Ashita Gupta', category: 'Branding', img: ashita, size: 'square' },
@@ -159,6 +160,7 @@ function FilterBar({ categories, active, onChange }) {
 
 function ProjectCard({ project, index }) {
   const cardRef = useRef(null)
+  const CardElement = project.href ? motion.a : motion.div
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ['start end', 'end start'],
@@ -166,7 +168,8 @@ function ProjectCard({ project, index }) {
   const imgY = useTransform(scrollYProgress, [0, 1], ['-5%', '5%'])
 
   return (
-    <motion.div
+    <CardElement
+      {...(project.href ? { href: project.href } : {})}
       ref={cardRef}
       layout
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -174,6 +177,7 @@ function ProjectCard({ project, index }) {
       viewport={{ once: true, amount: 0.15 }}
       transition={{ delay: index * 0.06, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`group relative overflow-hidden rounded-2xl bg-[#0a0a0a] border border-bone/5 cursor-pointer ${sizeClasses[project.size] || 'md:col-span-1 md:row-span-1'}`}
+      aria-label={project.href ? `View ${project.title} case study` : `${project.title} project preview`}
     >
       <div className="relative w-full h-full min-h-[200px] md:min-h-[260px] overflow-hidden">
         <motion.img
@@ -212,7 +216,7 @@ function ProjectCard({ project, index }) {
           </svg>
         </div>
       </div>
-    </motion.div>
+    </CardElement>
   )
 }
 
