@@ -3,16 +3,23 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 import heroImage from '../../assets/Project1/1.png'
-import conceptImage from '../../assets/Project1/4.png'
-import markImage from '../../assets/Project1/4_1.png'
-import overviewImage from '../../assets/Project1/Project Look & fill.png'
-import animationVideo from '../../assets/Project1/RP animation.mp4'
+import sketchImage from '../../assets/Project1/Sketch.png'
+import logoImage from '../../assets/Project1/Logo.png'
+import patternImage from '../../assets/Project1/Patern.png'
+import formulaImage from '../../assets/Project1/R+P.png'
+import blueLogoImage from '../../assets/Project1/Blue back logo.png'
+import circleLogoImage from '../../assets/Project1/Circle logo.png'
+import modelImage from '../../assets/Project1/model image.png'
+import productImage from '../../assets/Project1/Product image.png'
+import productsShootImage from '../../assets/Project1/Products shoot.png'
 import stationaryImage from '../../assets/Project1/Stationary.png'
 import visitingCardImage from '../../assets/Project1/Visiting card.png'
 import tagsImage from '../../assets/Project1/Tags.png'
 import keychainImage from '../../assets/Project1/Keychain.png'
 import boxImage from '../../assets/Project1/Box.png'
 import blackBoxImage from '../../assets/Project1/Black Box.png'
+import websiteImage from '../../assets/Project1/Website.png'
+import socialMediaImage from '../../assets/Project1/Social media.png'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
@@ -21,13 +28,30 @@ const fadeUp = {
 
 const keywords = ['Luxury', 'Heritage', 'Prestige', 'Timeless', 'Sophisticated']
 
+const brandCollage = [
+  { src: modelImage, title: 'Luxury wardrobe', className: '' },
+  { src: productsShootImage, title: 'Leather goods', className: 'col-span-2' },
+  { src: blueLogoImage, title: 'Wordmark', className: '' },
+  { src: productImage, title: 'Hardware detail', className: '' },
+  { src: circleLogoImage, title: 'Seal mark', className: '' },
+]
+
+const developmentImages = [
+  { src: sketchImage, title: 'Sketch exploration' },
+  { src: logoImage, title: 'Constructed mark' },
+  { src: patternImage, title: 'Brand pattern' },
+]
+
 const gallery = [
-  { src: stationaryImage, title: 'Stationery System', className: 'md:col-span-2 md:row-span-2' },
-  { src: visitingCardImage, title: 'Visiting Cards', className: 'md:col-span-2' },
-  { src: boxImage, title: 'Packaging Box', className: '' },
-  { src: keychainImage, title: 'Leather Keychain', className: '' },
-  { src: tagsImage, title: 'Product Tags', className: 'md:col-span-2' },
-  { src: blackBoxImage, title: 'Black Box', className: '' },
+  { src: stationaryImage, title: 'Stationery System', className: 'md:col-span-2 md:row-span-2', imgClass: 'object-cover' },
+  { src: visitingCardImage, title: 'Visiting Cards', className: 'md:col-span-2', imgClass: 'object-cover' },
+  { src: boxImage, title: 'Packaging Box', className: '', imgClass: 'object-contain p-4', frameClass: 'bg-[#f3f0ea]' },
+  { src: keychainImage, title: 'Leather Keychain', className: '', imgClass: 'object-contain p-4', frameClass: 'bg-[#f3f0ea]' },
+  { src: tagsImage, title: 'Product Tags', className: 'md:row-span-2', imgClass: 'object-contain p-4', frameClass: 'bg-[#062b52]' },
+  { src: blackBoxImage, title: 'Black Box', className: '', imgClass: 'object-contain p-4', frameClass: 'bg-[#f3f0ea]' },
+  { src: circleLogoImage, title: 'Circular Seal', className: 'md:col-span-2', imgClass: 'object-contain p-8', frameClass: 'bg-white' },
+  { src: productImage, title: 'Gold Hardware', className: '', imgClass: 'object-cover' },
+  { src: productsShootImage, title: 'Product Family', className: 'md:col-span-2', imgClass: 'object-contain p-3', frameClass: 'bg-[#0d0d10]' },
 ]
 
 function RevealBlock({ children, className = '', delay = 0 }) {
@@ -122,94 +146,167 @@ export default function RojinPhillipPage() {
     <main className="min-h-screen overflow-x-hidden bg-[#050505] text-bone">
       <ProjectHero />
 
-      <section className="px-6 py-14 md:px-10 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 border-b border-bone/10 pb-14 md:grid-cols-[0.9fr_1.1fr] md:gap-16 md:pb-24">
-          <RevealBlock>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Overview</p>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-bone/70 md:text-lg">
-              Rojin Phillip is a premium luxury fashion brand focused on timeless
-              craftsmanship and refined elegance. The objective was to create a visual
-              identity that speaks to affluent customers while maintaining exclusivity
-              and sophistication.
-            </p>
+      <section className="px-6 py-14 md:px-10 md:py-20">
+        <div className="mx-auto max-w-6xl border-b border-bone/15 pb-12">
+          <RevealBlock className="mb-6 flex flex-wrap gap-2">
+            {['Logo Design', 'Brand Identity Design', 'Packaging Design'].map((tag) => (
+              <span key={tag} className="rounded-pill border border-[#ead6b4]/25 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#ead6b4]/80">
+                {tag}
+              </span>
+            ))}
           </RevealBlock>
-          <RevealBlock delay={0.08}>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Challenge</p>
-            <ul className="mt-5 space-y-3 text-sm leading-relaxed text-bone/65 md:text-base">
-              <li>Communicate luxury without appearing excessive.</li>
-              <li>Honor tradition while keeping the system modern and practical.</li>
-              <li>Build a versatile mark for packaging, print, digital, and apparel use.</li>
-              <li>Create a memorable symbol for prestige and craftsmanship.</li>
-            </ul>
-          </RevealBlock>
+
+          <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+            <RevealBlock>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Overview</p>
+              <p className="mt-5 max-w-lg text-sm leading-relaxed text-bone/70 md:text-base">
+                Rojin Phillip is a premium luxury fashion brand focused on timeless
+                craftsmanship and refined elegance. The objective was to create a visual
+                identity that would resonate with affluent customers while maintaining a
+                sense of exclusivity and sophistication.
+              </p>
+            </RevealBlock>
+            <RevealBlock delay={0.08}>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Challenge</p>
+              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-bone/70 md:text-base">
+                <li>Communicate luxury without appearing excessive.</li>
+                <li>Appeal to high-end fashion consumers.</li>
+                <li>Maintain versatility across packaging and print applications.</li>
+                <li>Create a memorable symbol that represents prestige and craftsmanship.</li>
+              </ul>
+            </RevealBlock>
+          </div>
         </div>
       </section>
 
-      <section className="px-6 pb-16 md:px-10 md:pb-28">
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
-          <RevealBlock className="space-y-5">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Brand Keywords</p>
-            <div className="space-y-2">
+      <section className="px-6 pb-16 md:px-10 md:pb-24">
+        <div className="mx-auto grid max-w-6xl gap-8 border-b border-bone/15 pb-14 md:grid-cols-[0.34fr_0.66fr] md:items-center">
+          <RevealBlock>
+            <p className="text-sm font-semibold text-bone md:text-base">Brand Keywords</p>
+            <div className="mt-7 space-y-1.5">
               {keywords.map((word, index) => (
                 <motion.p
                   key={word}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -18 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.06, duration: 0.55 }}
-                  className="font-serif text-4xl leading-none text-bone md:text-5xl"
+                  className="text-xl leading-tight text-bone/85 md:text-2xl"
                 >
                   {word}
                 </motion.p>
               ))}
             </div>
           </RevealBlock>
-          <RevealBlock delay={0.1} className="overflow-hidden rounded-2xl border border-[#ead6b4]/15 bg-[#0b0b0d]">
-            <img src={overviewImage} alt="Rojin Phillip full identity reference" className="h-full max-h-[720px] w-full object-cover object-top opacity-90" />
+
+          <RevealBlock delay={0.1} className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {brandCollage.map((item, index) => (
+              <motion.figure
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className={`group overflow-hidden bg-[#0d0d10] ${item.className}`}
+              >
+                <img
+                  src={item.src}
+                  alt={`Rojin Phillip ${item.title}`}
+                  className="aspect-square h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </motion.figure>
+            ))}
           </RevealBlock>
         </div>
       </section>
 
-      <section className="bg-[#071b33] px-6 py-16 md:px-10 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1fr_0.9fr] md:items-center">
-          <RevealBlock>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#ead6b4]">Concept</p>
-            <h2 className="mt-4 font-serif text-5xl leading-[0.95] text-bone md:text-7xl">
-              A crest built from restraint.
-            </h2>
-            <p className="mt-6 max-w-xl text-sm leading-relaxed text-bone/70 md:text-base">
-              The logo combines the letters R and P into a refined owl-inspired emblem,
-              symbolizing wisdom, insight, and prosperity. The result is a mark that
-              feels ceremonial without losing everyday usability.
-            </p>
-          </RevealBlock>
-          <RevealBlock delay={0.1} className="grid gap-4 sm:grid-cols-2">
-            <div className="overflow-hidden rounded-2xl bg-[#06101f] p-4">
-              <img src={conceptImage} alt="Rojin Phillip logo construction" className="aspect-square w-full object-cover" />
-            </div>
-            <div className="overflow-hidden rounded-2xl bg-[#06101f] p-4">
-              <img src={markImage} alt="Rojin Phillip brand mark detail" className="aspect-square w-full object-contain" />
-            </div>
+      <section className="px-6 pb-16 md:px-10 md:pb-24">
+        <div className="mx-auto max-w-6xl border-b border-bone/15 pb-14">
+          <div className="grid gap-4 md:grid-cols-3">
+            {developmentImages.map((item, index) => (
+              <motion.figure
+                key={item.title}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.07, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                className="group overflow-hidden bg-[#0d0d10]"
+              >
+                <img
+                  src={item.src}
+                  alt={`Rojin Phillip ${item.title}`}
+                  className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </motion.figure>
+            ))}
+          </div>
+
+          <RevealBlock delay={0.12} className="mt-4 overflow-hidden bg-[#08080a]">
+            <img src={formulaImage} alt="Rojin Phillip logo formula" className="w-full object-cover" />
           </RevealBlock>
         </div>
       </section>
 
-      <section className="px-6 py-16 md:px-10 md:py-28">
+      <section className="px-6 pb-16 md:px-10 md:pb-24">
         <div className="mx-auto max-w-6xl">
-          <RevealBlock className="mb-8 flex flex-col gap-4 md:mb-12 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Applications</p>
-              <h2 className="mt-4 font-serif text-5xl leading-none text-bone md:text-7xl">
-                Identity in use
-              </h2>
-            </div>
-            <p className="max-w-md text-sm leading-relaxed text-bone/55">
-              A tactile system across stationery, packaging, leather goods, and print
-              touchpoints, designed to feel consistent without becoming repetitive.
+          <RevealBlock className="grid gap-8 border-b border-bone/15 pb-10 md:grid-cols-[0.22fr_0.78fr] md:items-start">
+            <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Concept</p>
+            <p className="max-w-4xl text-sm leading-relaxed text-bone/72 md:text-base">
+              The logo combines the letters R and P to form a refined owl-inspired
+              emblem, symbolizing wisdom, insight, and prosperity. Designed with
+              elegance and sophistication in mind, it reflects the brand's commitment
+              to luxury, exclusivity, and timeless style.
             </p>
           </RevealBlock>
 
-          <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:grid-cols-4 md:auto-rows-[190px]">
+          <RevealBlock delay={0.08} className="mt-10 bg-[#062b52] px-6 py-10 md:px-12 md:py-14">
+            <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+              <div>
+                <p className="font-serif text-3xl uppercase leading-none text-[#e8c48c] md:text-5xl">
+                  Colors
+                  <br />
+                  Family
+                </p>
+                <div className="mt-7 grid max-w-sm grid-cols-3 gap-3">
+                  {[
+                    ['#0C2D50', 'Deep Navy'],
+                    ['#E8C48C', 'Heritage Gold'],
+                    ['#E8DFCF', 'Warm Bone'],
+                  ].map(([color, label]) => (
+                    <div key={label} className="space-y-2">
+                      <div className="aspect-square border border-bone/15" style={{ backgroundColor: color }} />
+                      <p className="text-[10px] uppercase tracking-[0.16em] text-bone/60">{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <img src={blueLogoImage} alt="Rojin Phillip logo on blue" className="w-full object-contain" />
+            </div>
+          </RevealBlock>
+
+          <RevealBlock delay={0.08} className="border-b border-bone/15 py-12 text-center md:py-16">
+            <p className="font-serif text-4xl uppercase leading-none text-bone md:text-6xl">
+              Perpetua Titling MT
+            </p>
+            <div className="mx-auto mt-8 flex max-w-3xl items-end justify-between border-t border-[#d8b47b]/50 pt-5 text-[#d8b47b]">
+              <span className="font-serif text-2xl">Abcdefghij...</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-bone/45">Light / Bold</span>
+              <span className="font-serif text-2xl font-bold">Abcdefghij...</span>
+            </div>
+          </RevealBlock>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 md:px-10 md:pb-24">
+        <div className="mx-auto max-w-6xl">
+          <RevealBlock className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="text-sm leading-relaxed text-bone/70 md:text-base">
+              A custom pattern was developed from the brand mark to create a consistent
+              luxury experience across packaging and printed materials.
+            </p>
+          </RevealBlock>
+
+          <div className="grid auto-rows-[260px] grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4 md:auto-rows-[190px]">
             {gallery.map((item, index) => (
               <motion.figure
                 key={item.title}
@@ -217,12 +314,12 @@ export default function RojinPhillipPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.05, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                className={`group relative overflow-hidden rounded-2xl border border-bone/10 bg-[#0d0d10] ${item.className}`}
+                className={`group relative overflow-hidden ${item.frameClass || 'bg-[#0d0d10]'} ${item.className}`}
               >
                 <img
                   src={item.src}
                   alt={`Rojin Phillip ${item.title}`}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`h-full w-full transition-transform duration-700 group-hover:scale-105 ${item.imgClass || 'object-cover'}`}
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050505]/85 to-transparent p-4 text-xs uppercase tracking-[0.2em] text-bone/75 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                   {item.title}
@@ -234,28 +331,17 @@ export default function RojinPhillipPage() {
       </section>
 
       <section className="px-6 pb-16 md:px-10 md:pb-28">
-        <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-[0.9fr_1.1fr]">
-          <RevealBlock className="overflow-hidden rounded-2xl border border-[#ead6b4]/15 bg-[#e8dfcf] p-4 md:p-6">
-            <video
-              src={animationVideo}
-              className="aspect-[4/5] h-full w-full rounded-xl object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
+        <div className="mx-auto grid max-w-6xl gap-4 border-t border-bone/15 pt-10 md:grid-cols-2">
+          <RevealBlock className="bg-[#e8dfcf] p-5 text-center md:p-8">
+            <p className="mb-4 font-serif text-3xl uppercase leading-none text-[#30281f] md:text-4xl">
+              Website
+            </p>
+            <img src={websiteImage} alt="Rojin Phillip website design" className="w-full object-contain shadow-2xl shadow-black/30" />
           </RevealBlock>
-          <RevealBlock delay={0.08} className="flex flex-col justify-between rounded-2xl border border-bone/10 bg-[#0c0c0f] p-7 md:p-10">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Digital Presence</p>
-              <h2 className="mt-5 font-serif text-5xl leading-[0.95] text-bone md:text-7xl">
-                From emblem to experience.
-              </h2>
-            </div>
-            <p className="mt-10 max-w-xl text-sm leading-relaxed text-bone/60 md:text-base">
-              The visual language extends into web and social layouts with a measured
-              balance of monochrome photography, deep navy, warm gold, and generous
-              editorial spacing.
+          <RevealBlock delay={0.08} className="bg-[#e8dfcf] p-5 text-center md:p-8">
+            <img src={socialMediaImage} alt="Rojin Phillip social media design" className="w-full object-contain shadow-2xl shadow-black/30" />
+            <p className="mt-4 font-serif text-3xl uppercase leading-none text-[#30281f] md:text-4xl">
+              Social Media
             </p>
           </RevealBlock>
         </div>
