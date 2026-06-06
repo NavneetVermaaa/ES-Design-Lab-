@@ -3,6 +3,8 @@ import { useRef } from 'react'
 import logoSrc from '../../assets/logo.png'
 
 export function Nav() {
+  const isVisualDesign = window.location.pathname === '/visual-design'
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="flex items-center justify-between px-6 md:px-10 py-6">
@@ -22,16 +24,16 @@ export function Nav() {
           />
         </motion.a>
 
-        <div className="flex items-center gap-10 mix-blend-difference">
-          <nav className="hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.18em] text-bone">
-            <a href="/#work" className="hover:text-yellow transition-colors">Work</a>
-            <a href="/#expertise" className="hover:text-yellow transition-colors">Services</a>
-            <a href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-yellow transition-colors">About</a>
-            <a href="/#contact" className="hover:text-yellow transition-colors">Contact</a>
+        <div className={`flex items-center gap-10 ${isVisualDesign ? '' : 'mix-blend-difference'}`}>
+          <nav className={`hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.18em] ${isVisualDesign ? 'text-ink' : 'text-bone'}`}>
+            <a href="/#work" className={`hover:text-yellow transition-colors ${isVisualDesign ? 'hover:text-[#9B6DFF]' : ''}`}>Work</a>
+            <a href="/#expertise" className={`hover:text-yellow transition-colors ${isVisualDesign ? 'hover:text-[#9B6DFF]' : ''}`}>Services</a>
+            <a href="/about" target="_blank" rel="noopener noreferrer" className={`hover:text-yellow transition-colors ${isVisualDesign ? 'hover:text-[#9B6DFF]' : ''}`}>About</a>
+            <a href="/#contact" className={`hover:text-yellow transition-colors ${isVisualDesign ? 'hover:text-[#9B6DFF]' : ''}`}>Contact</a>
           </nav>
           <a
             href="/#contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-pill border border-bone/40 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-bone hover:bg-bone hover:text-ink transition-colors"
+            className={`hidden md:inline-flex items-center gap-2 rounded-pill border ${isVisualDesign ? 'border-ink/40 text-ink hover:bg-ink hover:text-bone' : 'border-bone/40 text-bone hover:bg-bone hover:text-ink'} px-5 py-2.5 text-xs uppercase tracking-[0.2em] transition-colors`}
           >
             Start a project
           </a>

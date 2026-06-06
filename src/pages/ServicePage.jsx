@@ -3,6 +3,8 @@ import { Footer } from '@/components/site/Contact.jsx'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
 import brHeading from '@/assets/Br-heading.svg'
+import visualDesignBanner from '@/assets/Visual-design-banner.svg'
+import videoEditingBanner from '@/assets/Video-editing-banner.svg'
 
 const cardFill = {
   violet: 'bg-violet text-bone border-yellow',
@@ -255,9 +257,7 @@ function ContactForm({ service }) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             aria-label="Send"
-            className={`h-11 min-w-44 rounded-pill ${service.contactButton} ${
-              isBranding ? 'text-transparent' : 'text-ink'
-            } disabled:opacity-60`}
+            className={`h-11 min-w-44 rounded-pill ${service.contactButton} text-ink disabled:opacity-60`}
           >
             {status === 'sending' ? 'Sending' : 'Send'}
           </motion.button>
@@ -318,6 +318,32 @@ export default function ServicePage({ service }) {
               <span className="block text-white">with Intention</span>
             </h1>
           </motion.div>
+        </section>
+      ) : service.key === 'visual-design' ? (
+        <section
+          className="relative isolate flex min-h-[52rem] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
+          style={{ backgroundColor: service.heroBg }}
+        >
+          <img
+            src={visualDesignBanner}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+          />
+          <Reveal className="relative z-10 mx-auto w-full max-w-7xl">{heroHeading}</Reveal>
+        </section>
+      ) : service.key === 'video-editing' ? (
+        <section
+          className="relative isolate flex min-h-[52rem] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
+          style={{ backgroundColor: service.heroBg }}
+        >
+          <img
+            src={videoEditingBanner}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+          />
+          <Reveal className="relative z-10 mx-auto w-full max-w-7xl">{heroHeading}</Reveal>
         </section>
       ) : (
         <section
