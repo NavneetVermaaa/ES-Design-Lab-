@@ -34,17 +34,12 @@ const cardRadii = [
 export default function WhyUs() {
   return (
     <section className="px-6 md:px-10 py-28 md:py-40 bg-background">
-      <div className="grid md:grid-cols-12 gap-10 mb-16 md:mb-24">
-        <Reveal className="md:col-span-4">
-         
-        </Reveal>
-        <div className="md:col-span-8">
-          <RevealText
-            as="h2"
-            text="Reasons clients stay."
-            className="font-display uppercase text-bone text-5xl md:text-7xl lg:text-8xl leading-[0.9]"
-          />
-        </div>
+      <div className="mb-16 md:mb-24 text-center">
+        <RevealText
+          as="h2"
+          text="Reasons clients stay."
+          className="font-display uppercase text-bone text-5xl md:text-7xl lg:text-8xl leading-[0.9]"
+        />
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">

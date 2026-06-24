@@ -66,7 +66,7 @@ export default function Intro() {
               and visual storytelling.
             </p>
             <a
-              href="#work"
+              href="#contact"
               className="group inline-flex items-center gap-3"
             >
               <span className="rounded-pill bg-violet text-ink px-7 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-transform group-hover:-translate-x-1">

@@ -1,10 +1,28 @@
+import { useEffect } from 'react'
 import SmoothScroll from '@/components/SmoothScroll.jsx'
 import { Nav } from '@/components/site/Hero.jsx'
 import { Helmet } from 'react-helmet-async'
 import { structuredDataToJsonLd } from '@/lib/seo.js'
+import { navigate } from '@/lib/navigate.js'
 import { getOrganizationSchema } from '@/lib/seoConfig.js'
 
 export default function MainLayout({ children, seoData = {} }) {
+  useEffect(() => {
+    const handler = (e) => {
+      const link = e.target.closest('a')
+      if (!link) return
+      if (link.target === '_blank') return
+      const href = link.getAttribute('href')
+      if (!href) return
+      if (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return
+      if (href.startsWith('/') || href.startsWith('#')) {
+        e.preventDefault()
+        navigate(href)
+      }
+    }
+    document.addEventListener('click', handler)
+    return () => document.removeEventListener('click', handler)
+  }, [])
   const {
     title = 'ES Design Lab',
     description = 'Premium creative design studio specializing in branding, visual design, and video editing for ambitious brands.',

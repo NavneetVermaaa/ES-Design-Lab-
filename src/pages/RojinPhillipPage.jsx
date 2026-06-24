@@ -174,7 +174,7 @@ export default function RojinPhillipPage() {
       <section className="px-6 pb-16 md:px-10 md:pb-24">
         <div className="mx-auto grid max-w-6xl gap-8 border-b border-bone/15 pb-14 md:grid-cols-[0.34fr_0.66fr] md:items-center">
           <RevealBlock>
-            <p className="text-sm font-semibold text-bone md:text-base">Brand Keywords</p>
+            <p className="text-sm font-semibold md:text-base"><span className="text-[#d8b47b]">Brand</span> <span className="text-[#d8b47b]">Keywords</span></p>
             <div className="mt-7 space-y-1.5">
               {keywords.map((word, index) => (
                 <motion.p
@@ -266,13 +266,13 @@ export default function RojinPhillipPage() {
           </RevealBlock>
 
           <RevealBlock delay={0.08} className="border-b border-bone/15 py-12 text-center md:py-16">
-            <p className="font-serif text-4xl uppercase leading-none text-bone md:text-6xl">
+            <p className="font-titling text-4xl uppercase leading-none text-bone md:text-6xl">
               Perpetua Titling MT
             </p>
             <div className="mx-auto mt-8 flex max-w-3xl items-end justify-between border-t border-[#d8b47b]/50 pt-5 text-[#d8b47b]">
-              <span className="font-serif text-2xl">Abcdefghij...</span>
+              <span className="font-titling-light text-2xl">Abcdefghij...</span>
               <span className="text-[10px] uppercase tracking-[0.2em] text-bone/45">Light / Bold</span>
-              <span className="font-serif text-2xl font-bold">Abcdefghij...</span>
+              <span className="font-titling text-2xl">Abcdefghij...</span>
             </div>
           </RevealBlock>
         </div>

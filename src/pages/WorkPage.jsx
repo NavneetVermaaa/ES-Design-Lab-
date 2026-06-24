@@ -95,6 +95,8 @@ function CountUp({ value, suffix = '' }) {
 }
 
 function HeroSection() {
+  const words = "If It Makes You Pause, It's Working.".split(' ')
+
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#050505] px-6 md:px-10 pt-32 pb-20">
       <motion.div
@@ -108,20 +110,38 @@ function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl">
+      <div className="relative z-10 max-w-6xl overflow-visible">
         <RevealText
           text="SELECTED WORK"
-          className="text-xs md:text-sm uppercase tracking-[0.3em] text-bone/40 font-sans mb-6"
+          className="text-xs md:text-sm uppercase tracking-[0.3em] text-bone/40 font-sans mb-10 md:mb-12"
           as="p"
         />
-        <RevealText
-          text="If It Makes You Pause, It's Working."
-          className="font-display text-bone text-[15vw] md:text-8xl lg:text-[9rem] leading-[0.8] -ml-[0.04em]"
-          as="h1"
-        />
+        <h1 className="font-display text-bone text-[15vw] md:text-8xl lg:text-[9rem] leading-[0.9] overflow-visible">
+          <motion.span
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ staggerChildren: 0.08 }}
+          >
+            {words.map((w, i) => (
+              <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.25em]">
+                <motion.span
+                  className="inline-block"
+                  variants={{
+                    hidden: { y: '110%' },
+                    show: { y: '0%', transition: { duration: 0.9, ease: [0.2, 0.8, 0.2, 1] } },
+                  }}
+                  style={w.toLowerCase().startsWith('pause') ? { color: '#FEF102' } : undefined}
+                >
+                  {w}
+                </motion.span>
+              </span>
+            ))}
+          </motion.span>
+        </h1>
         <Reveal delay={0.5}>
-          <p className="max-w-xl text-bone/50 text-base md:text-lg leading-relaxed mt-8 md:mt-10">
-            Branding, visual design, and creative direction — built for brands that
+          <p className="max-w-xl text-bone/50 text-base md:text-lg leading-relaxed mt-12 md:mt-16">
+            Branding, visual design, and creative direction built for brands that
             refuse to blend in. Every project is a study in clarity, intention, and
             lasting impact.
           </p>

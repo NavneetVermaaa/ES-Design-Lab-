@@ -1,9 +1,28 @@
 @import "tailwindcss" source(none);
+
+@font-face {
+  font-family: "Perpetua Titling MT";
+  src: url("https://fonts.cdnfonts.com/s/56562/PERTIBD.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Perpetua Titling MT Light";
+  src: url("https://db.onlinewebfonts.com/t/d461c89ddda0ee0e6493f1cc55e60d4e.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/d461c89ddda0ee0e6493f1cc55e60d4e.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 @source "../src";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-titling: "Perpetua Titling MT", "Times New Roman", serif;
+  --font-titling-light: "Perpetua Titling MT Light", "Times New Roman", serif;
   --font-display: "Anton", "Archivo Black", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Instrument Serif", "Times New Roman", serif;

@@ -26,10 +26,10 @@ export default function Work() {
         <div className="marquee-track items-baseline gap-12 font-display uppercase text-[22vw] md:text-[18vw] leading-none">
           {Array.from({ length: 2 }).map((_, k) => (
             <div key={k} className="flex items-baseline gap-12 pr-12">
-              <span>Selected Work</span>
-              <span className="font-serif-i text-violet">— 2024</span>
-              <span>Selected Work</span>
-              <span className="font-serif-i text-violet">— 2024</span>
+              <span>Featured Projects</span>
+              
+              <span>Featured Projects</span>
+              
             </div>
           ))}
         </div>

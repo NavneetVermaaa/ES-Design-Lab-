@@ -105,11 +105,11 @@ export function Hero() {
           className="mt-10 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12"
         >
           <p className="max-w-md text-bone/70 text-lg leading-relaxed">
-            We help brands create a clear and consistent presence through thoughtful design,
-            branding, and visual storytelling.
+            We help brands create a clear and consistent<br className="sm:hidden" />
+            presence through thoughtful design, branding,<br className="sm:hidden" /> and visual storytelling.
           </p>
           <a
-            href="/#contact"
+            href="#contact"
             className="group inline-flex items-center gap-3 self-start md:self-auto"
           >
             <span className="rounded-pill bg-violet text-ink px-7 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-transform group-hover:-translate-x-1">

@@ -10,7 +10,7 @@ const services = [
     body: 'From building identities for new startups to reshaping established brands. We make sure your brand communicates clearly, connects with the right audience, and leaves a lasting impression.',
   },
   {
-    title: 'Visual Design',
+    title: 'Communication Design',
     href: '/visual-design',
     headline: 'Make it inevitable.',
     tagline: "Every pixel earns its place. Visual systems that feel like they've always belonged.",

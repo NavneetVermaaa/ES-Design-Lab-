@@ -16,6 +16,13 @@ const testimonials = [
     name: 'Preethi Durga',
     role: 'Owner & Instructor, Kumon',
   },
+  {
+    quote:
+      "It was a pleasure working with ES Design on our offline marketing creatives. The entire process was smooth and professional. Deliveries were always on time, the requirements were understood clearly, and the final designs were provided exactly in the format we needed. What impressed us the most was the creativity and innovative thinking brought to the project. Every design felt fresh while staying perfectly aligned with our brand and brief. We highly recommend ES Design to anyone looking for reliable, thoughtful, and creative design support. We look forward to collaborating again in the future.",
+    initials: 'IR',
+    name: 'Indu R Eswarappa',
+    role: 'Co-founder, Nextmovez',
+  },
 ]
 
 const slideVariants = {

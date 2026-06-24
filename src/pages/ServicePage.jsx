@@ -54,42 +54,57 @@ function ServiceCards({ service }) {
   const isVideoEditing = service.key === 'video-editing'
 
   if (isBranding) {
-    const borderRound = (index) => {
-      if (index === 0) return 'rounded-[2rem_2rem_0_2rem]'
-      if (index === 1 || index === 2) return 'rounded-[2rem_2rem_0_0]'
-      if (index === 3) return 'rounded-[2rem_2rem_2rem_0]'
-      return ''
-    }
+    const cardColors = [
+      { bg: '#6950A7', text: '#FFFFFF', heading: '#F5E500', border: '#F5E500' },
+      { bg: '#050505', text: '#FFFFFF', heading: '#F5E500', border: '#F5E500' },
+      { bg: '#050505', text: '#FFFFFF', heading: '#F5E500', border: '#F5E500' },
+      { bg: '#FFE600', text: '#050505', heading: '#050505', border: '#F5E500' },
+    ]
 
     return (
       <div className="-mx-4 mt-14 grid gap-2 pt-6 sm:grid-cols-2 md:grid-cols-4">
-        {service.cards.map((card, index) => (
-          <div key={card.title}>
-            <motion.article
-              className={`flex min-h-[218px] flex-col border-2 p-4 lg:min-h-[300px] lg:p-6 bg-black text-bone border-[#FFE600] ${borderRound(index)}`}
-              initial={{ y: 0, backgroundColor: '#000000', boxShadow: '0px 0px 0px rgba(0,0,0,0)' }}
-              whileHover={{
-                y: -10,
-                scale: 1.015,
-                backgroundColor: '#5E4A96',
-                boxShadow: '0 20px 45px rgba(255,230,0,0.18)',
-              }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <h3 className="font-display text-[clamp(1rem,2.5vw,1.875rem)] uppercase leading-none tracking-normal lg:text-3xl text-[#FFE600]">
-                {index + 1}. {card.title}
-              </h3>
-              <p className="mt-5 text-[0.64rem] font-medium leading-relaxed lg:text-sm text-bone/85">
-                {card.body}
-              </p>
-              {card.meta ? (
-                <p className="mt-auto pt-5 text-[0.58rem] font-bold leading-relaxed tracking-wide lg:text-xs text-bone/70">
-                  {card.meta}
-                </p>
-              ) : null}
-            </motion.article>
-          </div>
-        ))}
+        {service.cards.map((card, index) => {
+          const c = cardColors[index]
+          return (
+            <div key={card.title} className="h-full">
+              <motion.article
+                className={`flex h-full flex-col border-2 p-4 lg:p-6 ${
+                  index === 0
+                    ? 'rounded-tl-[42px] rounded-tr-[42px] rounded-bl-[42px] rounded-br-none'
+                    : index === 3
+                    ? 'rounded-tl-[42px] rounded-tr-[42px] rounded-bl-none rounded-br-[42px]'
+                    : 'rounded-tl-[42px] rounded-tr-[42px] rounded-none'
+                }`}
+                style={{ backgroundColor: c.bg, borderColor: c.border, color: c.text }}
+                initial={{ y: 0, boxShadow: '0px 0px 0px rgba(0,0,0,0)' }}
+                whileHover={{
+                  y: -10,
+                  scale: 1.015,
+                  backgroundColor: index === 3 ? '#F5E500' : '#5E4A96',
+                  boxShadow: '0 20px 45px rgba(255,230,0,0.18)',
+                }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h3
+                  className="font-display text-[clamp(1rem,2.5vw,1.875rem)] uppercase leading-none tracking-normal lg:text-3xl"
+                  style={{ color: c.heading }}
+                >
+                  {index + 1}. {card.title}
+                </h3>
+                {card.body.split('\n\n').map((part, i) => (
+                  <p key={i} className="text-[0.64rem] font-medium leading-relaxed lg:text-sm mt-3">
+                    {part}
+                  </p>
+                ))}
+                {card.meta ? (
+                  <p className="mt-auto pt-4 text-[0.58rem] font-bold leading-relaxed tracking-wide lg:text-xs">
+                    {card.meta}
+                  </p>
+                ) : null}
+              </motion.article>
+            </div>
+          )
+        })}
       </div>
     )
   }
@@ -122,18 +137,18 @@ function ServiceCards({ service }) {
     return (
       <div className="mt-16 grid gap-3 md:mt-20 md:grid-cols-4 md:gap-4">
         {service.cards.map((card, index) => (
-          <Reveal key={card.title} delay={index * 0.06}>
+          <Reveal key={card.title} delay={index * 0.06} className="h-full">
             <article
-              className={`flex min-h-[230px] flex-col rounded-[2.4rem_2.4rem_0_0] border-2 p-6 md:min-h-[280px] md:p-7 bg-black text-bone border-[#FFE600] will-change-transform transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#D8EF58] hover:shadow-[0_20px_45px_rgba(216,239,88,0.25)] hover:-translate-y-[10px] hover:scale-[1.015] ${
+              className={`flex h-full flex-col rounded-[2.4rem_2.4rem_0_0] border-2 p-6 md:p-7               bg-black text-bone border-[#FFE600] will-change-transform transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#D8EF58] hover:text-[#1A1A1A] hover:shadow-[0_20px_45px_rgba(216,239,88,0.25)] hover:-translate-y-[10px] hover:scale-[1.015] ${
                 index === 0 ? 'rounded-bl-[2.4rem]' : ''
               } ${index === service.cards.length - 1 ? 'rounded-br-[2.4rem]' : ''}`}
             >
-              <h3 className="font-display text-3xl uppercase leading-none md:text-4xl text-[#FFE600]">
+              <h3 className="font-display text-3xl uppercase leading-none md:text-4xl text-[#FFE600] hover:text-[#0A0A0A]">
                 {index + 1}. {card.title}
               </h3>
-              <p className="mt-8 text-sm font-medium leading-relaxed opacity-85">{card.body}</p>
+              <p className="mt-8 text-sm font-medium leading-relaxed opacity-85 hover:opacity-100">{card.body}</p>
               {card.meta ? (
-                <p className="mt-auto pt-6 text-xs font-bold leading-relaxed opacity-85">{card.meta}</p>
+                <p className="mt-auto pt-6 text-xs font-bold leading-relaxed opacity-85 hover:opacity-100">{card.meta}</p>
               ) : null}
             </article>
           </Reveal>
@@ -297,7 +312,7 @@ export default function ServicePage({ service }) {
     <main className="bg-ink text-bone overflow-x-hidden">
       {service.key === 'branding' ? (
         <section
-          className="relative isolate flex h-[clamp(26rem,52.5vw,42rem)] max-h-[100svh] min-h-[24rem] w-full items-start justify-center md:justify-start overflow-hidden px-6 md:px-[8.5%] pt-24 md:pt-[8.1rem]"
+          className="relative isolate flex h-[clamp(26rem,52.5vw,42rem)] max-h-[100svh] min-h-[24rem] w-full items-start justify-center md:justify-start overflow-hidden px-6 md:px-[8.5%] pt-28 md:pt-[12rem]"
           style={{ backgroundColor: service.heroBg }}
         >
           <img
@@ -358,42 +373,35 @@ export default function ServicePage({ service }) {
         </section>
       )}
 
-      <section className={`px-6 md:px-10 ${
-        service.key === 'branding' ? 'py-16 md:pb-12 md:pt-[4.35rem]' : 'py-20 md:py-28'
-      }`}>
+      <section className="px-6 md:px-10 py-20 md:py-32">
         <div className="mx-auto max-w-7xl">
           <Reveal instant={service.key === 'branding'}>
-            <div className={`max-w-5xl text-xl font-semibold leading-relaxed md:text-2xl ${
-              service.key === 'branding'
-                ? 'text-[clamp(0.85rem,2.5vw,1rem)] leading-relaxed text-white md:max-w-[42rem]'
-                : 'text-bone/85'
-            }`}>
+            <div className="max-w-3xl">
               {service.intro.quoteFirst ? (
-                <p className="mb-7 font-serif-i text-4xl leading-tight text-yellow md:text-5xl">
+                <p className="font-serif-i text-3xl md:text-4xl lg:text-5xl leading-tight text-yellow">
                   {service.intro.quoteFirst}
                 </p>
               ) : (
-                <p>
+                <p className="text-lg md:text-xl font-medium leading-relaxed text-bone/90">
                   <span className={service.intro.eyebrowClass}>{service.intro.eyebrow}</span>,{' '}
                   {service.intro.lead}
                 </p>
               )}
 
-              {service.intro.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="mt-7">
+              {service.intro.paragraphs.map((paragraph, idx) => (
+                <p key={idx} className="mt-10 text-lg md:text-xl font-medium leading-relaxed text-bone/90">
                   {paragraph}
                 </p>
               ))}
 
               {service.intro.quote ? (
-                <p className={`mt-8 font-serif-i leading-tight text-yellow ${
-                  service.key === 'branding' ? 'text-[clamp(1.25rem,2.8vw,1.75rem)]' : 'text-4xl md:text-5xl'
-                }`}>
+                <p className="mt-20 font-serif-i text-3xl md:text-4xl lg:text-5xl leading-tight text-yellow"
+                   style={service.key === 'branding' ? { fontFamily: 'Anton, system-ui, sans-serif', fontStyle: 'normal', fontWeight: 300 } : undefined}>
                   {service.intro.quote}
                 </p>
               ) : null}
 
-              {service.intro.closing ? <p className="mt-7">{service.intro.closing}</p> : null}
+              {service.intro.closing ? <p className="mt-10 text-lg md:text-xl font-medium leading-relaxed text-bone/90">{service.intro.closing}</p> : null}
             </div>
           </Reveal>
 

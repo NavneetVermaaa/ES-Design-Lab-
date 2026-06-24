@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import MainLayout from '@/layouts/MainLayout.jsx'
 import Home from '@/pages/Home.jsx'
 import ServicePage from '@/pages/ServicePage.jsx'
@@ -9,6 +10,18 @@ import { getCaseStudyMetaTags, getPageMetaTags, getServiceMetaTags } from '@/lib
 import { getCreativeWorkSchema, getServiceSchema } from '@/lib/seoConfig.js'
 
 export default function App() {
+  const [, forceUpdate] = useState(0)
+
+  useEffect(() => {
+    const handler = () => forceUpdate((k) => k + 1)
+    window.addEventListener('popstate', handler)
+    window.addEventListener('app-navigate', handler)
+    return () => {
+      window.removeEventListener('popstate', handler)
+      window.removeEventListener('app-navigate', handler)
+    }
+  }, [])
+
   const path = window.location.pathname.replace(/\/$/, '') || '/'
   const service = servicePages[path]
 
