@@ -24,19 +24,13 @@ export function Nav() {
           />
         </motion.a>
 
-        <div className={`flex items-center gap-10 ${isVisualDesign ? '' : 'mix-blend-difference'}`}>
+        <div className={`flex items-center ${isVisualDesign ? '' : 'mix-blend-difference'}`}>
           <nav className={`hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.18em] ${isVisualDesign ? 'text-ink' : 'text-bone'}`}>
             <a href="/#work" className={`hover:text-yellow transition-colors ${isVisualDesign ? 'hover:text-[#9B6DFF]' : ''}`}>Work</a>
             <a href="/#expertise" className={`hover:text-yellow transition-colors ${isVisualDesign ? 'hover:text-[#9B6DFF]' : ''}`}>Services</a>
             <a href="/about" target="_blank" rel="noopener noreferrer" className={`hover:text-yellow transition-colors ${isVisualDesign ? 'hover:text-[#9B6DFF]' : ''}`}>About</a>
             <a href="/#contact" className={`hover:text-yellow transition-colors ${isVisualDesign ? 'hover:text-[#9B6DFF]' : ''}`}>Contact</a>
           </nav>
-          <a
-            href="/#contact"
-            className={`hidden md:inline-flex items-center gap-2 rounded-pill border ${isVisualDesign ? 'border-ink/40 text-ink hover:bg-ink hover:text-bone' : 'border-bone/40 text-bone hover:bg-bone hover:text-ink'} px-5 py-2.5 text-xs uppercase tracking-[0.2em] transition-colors`}
-          >
-            Start a project
-          </a>
         </div>
       </div>
     </header>

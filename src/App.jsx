@@ -4,6 +4,10 @@ import Home from '@/pages/Home.jsx'
 import ServicePage from '@/pages/ServicePage.jsx'
 import WorkPage from '@/pages/WorkPage.jsx'
 import RojinPhillipPage from '@/pages/RojinPhillipPage.jsx'
+import AcrowellPage from '@/pages/AcrowellPage.jsx'
+import CBAPage from '@/pages/CBAPage.jsx'
+import MRIPage from '@/pages/MRIPage.jsx'
+import SPFPage from '@/pages/SPFPage.jsx'
 import AboutPage from '@/pages/AboutPage.jsx'
 import { servicePages } from '@/data/services.js'
 import { getCaseStudyMetaTags, getPageMetaTags, getServiceMetaTags } from '@/lib/seo.js'
@@ -41,6 +45,58 @@ export default function App() {
       image: seoData.image,
       tags: caseStudy.services,
     })
+  } else if (path === '/projects/acrowell') {
+    const caseStudy = {
+      name: 'Acrowell',
+      slug: 'acrowell',
+      description: 'Luxury fashion brand identity case study for Acrowell by ES Design Lab.',
+      services: ['Logo Design', 'Brand Identity', 'Packaging Design'],
+    }
+    seoData = getCaseStudyMetaTags(caseStudy)
+    seoData.structuredData = getCreativeWorkSchema({
+      ...caseStudy,
+      image: seoData.image,
+      tags: caseStudy.services,
+    })
+  } else if (path === '/projects/cba') {
+    const caseStudy = {
+      name: 'CBA',
+      slug: 'cba',
+      description: 'Luxury fashion brand identity case study for CBA by ES Design Lab.',
+      services: ['Logo Design', 'Brand Identity', 'Packaging Design'],
+    }
+    seoData = getCaseStudyMetaTags(caseStudy)
+    seoData.structuredData = getCreativeWorkSchema({
+      ...caseStudy,
+      image: seoData.image,
+      tags: caseStudy.services,
+    })
+  } else if (path === '/projects/mri') {
+    const caseStudy = {
+      name: 'MRI',
+      slug: 'mri',
+      description: 'Luxury fashion brand identity case study for MRI by ES Design Lab.',
+      services: ['Logo Design', 'Brand Identity', 'Packaging Design'],
+    }
+    seoData = getCaseStudyMetaTags(caseStudy)
+    seoData.structuredData = getCreativeWorkSchema({
+      ...caseStudy,
+      image: seoData.image,
+      tags: caseStudy.services,
+    })
+  } else if (path === '/projects/spf') {
+    const caseStudy = {
+      name: 'SPF',
+      slug: 'spf',
+      description: 'Luxury fashion brand identity case study for SPF by ES Design Lab.',
+      services: ['Logo Design', 'Brand Identity', 'Packaging Design'],
+    }
+    seoData = getCaseStudyMetaTags(caseStudy)
+    seoData.structuredData = getCreativeWorkSchema({
+      ...caseStudy,
+      image: seoData.image,
+      tags: caseStudy.services,
+    })
   } else if (path === '/about') {
     seoData = getPageMetaTags('about')
   } else if (path === '/work') {
@@ -57,7 +113,25 @@ export default function App() {
 
   return (
     <MainLayout seoData={seoData}>
-      {path === '/about' ? <AboutPage /> : path === '/work/rojin-phillip' ? <RojinPhillipPage /> : path === '/work' ? <WorkPage /> : service ? <ServicePage service={service} /> : <Home />}
+      {path === '/about' ? (
+        <AboutPage />
+      ) : path === '/work/rojin-phillip' ? (
+        <RojinPhillipPage />
+      ) : path === '/projects/acrowell' ? (
+        <AcrowellPage />
+      ) : path === '/projects/cba' ? (
+        <CBAPage />
+      ) : path === '/projects/mri' ? (
+        <MRIPage />
+      ) : path === '/projects/spf' ? (
+        <SPFPage />
+      ) : path === '/work' ? (
+        <WorkPage />
+      ) : service ? (
+        <ServicePage service={service} />
+      ) : (
+        <Home />
+      )}
     </MainLayout>
   )
 }

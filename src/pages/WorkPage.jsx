@@ -17,16 +17,18 @@ import billboard from '@/assets/work-billboard.jpg'
 import train from '@/assets/work-train.jpg'
 import ashita from '@/assets/work-ashita.jpg'
 import rojinHero from '../../assets/Project1/1.png'
+import acrowellHero from '../../assets/Acrowell/1.png'
+import cbaHero from '../../assets/CBA/2.png'
+import mriHero from '../../assets/MRI/1.png'
+import spfHero from '../../assets/SPF/1.png'
 
 const projects = [
-  { id: 1, title: 'Rojin Phillip', category: 'Branding', img: rojinHero, size: 'large', href: '/work/rojin-phillip' },
-  { id: 2, title: 'Cashly', category: 'Visual Design', img: billboard, size: 'square' },
-  { id: 3, title: 'Atelier Rouge', category: 'Branding', img: train, size: 'portrait' },
-  { id: 4, title: 'Ashita Gupta', category: 'Branding', img: ashita, size: 'square' },
-  { id: 5, title: 'Maison Noire', category: 'Video Editing', img: grand5, size: 'large' },
-  { id: 6, title: 'Bloom', category: 'Visual Design', img: billboard, size: 'portrait' },
-  { id: 7, title: 'Vertex', category: 'Video Editing', img: train, size: 'square' },
-  { id: 8, title: 'Studio Nude', category: 'Visual Design', img: ashita, size: 'square' },
+  { id: 1, title: 'Acrowell', category: 'Branding', img: acrowellHero, size: 'square', href: '/projects/acrowell' },
+  { id: 2, title: 'CBA', category: 'Branding', img: cbaHero, size: 'square', href: '/projects/cba' },
+  { id: 3, title: 'Rojin Phillip', category: 'Branding', img: rojinHero, size: 'square', href: '/work/rojin-phillip' },
+  { id: 4, title: 'Sneaker Fest', category: 'Branding', img: billboard, size: 'square', href: '/projects/sneaker-fest' },
+  { id: 5, title: 'MRI Master', category: 'Branding', img: mriHero, size: 'square', href: '/projects/mri' },
+  { id: 6, title: 'The Sign & Print Factory', category: 'Branding', img: spfHero, size: 'square', href: '/projects/spf' },
 ]
 
 const categories = ['All', 'Branding', 'Visual Design', 'Video Editing']

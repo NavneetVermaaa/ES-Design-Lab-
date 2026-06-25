@@ -121,7 +121,7 @@ export default function Testimonial() {
           exit="exit"
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <blockquote className="max-w-6xl mx-auto text-center font-serif-i text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-ink" style={{ fontFamily: '"Non Idyllic", serif' }}>
+          <blockquote className={`max-w-6xl mx-auto text-center font-serif-i leading-[1.1] text-ink ${active === 2 ? 'text-2xl md:text-4xl lg:text-5xl' : 'text-3xl md:text-5xl lg:text-6xl'}`} style={{ fontFamily: '"Non Idyllic", serif' }}>
             {t.quote}
           </blockquote>
           <div className="mt-12 flex items-center justify-center gap-5">

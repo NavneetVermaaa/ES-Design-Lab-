@@ -22,6 +22,7 @@ import websiteImage from '../../assets/Project1/Website.png'
 import socialMediaImage from '../../assets/Project1/Social media.png'
 import colorsFamilyImage from '../../assets/Project1/4.png'
 import rpAnimation from '../../assets/Project1/RP animation.mp4'
+import acrowellLogoImg from '../../assets/Acrowell/2.png'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
@@ -166,6 +167,30 @@ export default function RojinPhillipPage() {
                 <li>Maintain versatility across packaging and print applications.</li>
                 <li>Create a memorable symbol that represents prestige and craftsmanship.</li>
               </ul>
+            </RevealBlock>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 md:px-10 md:pb-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-12 md:items-center">
+            <RevealBlock>
+              <img
+                src={acrowellLogoImg}
+                alt="Acrowell lotus-inspired W letterform"
+                className="w-full h-auto object-contain"
+              />
+            </RevealBlock>
+            <RevealBlock delay={0.08} className="md:py-8">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Lotus-inspired form</p>
+              <h2 className="mt-3 font-serif text-4xl leading-tight text-bone md:text-5xl">W letterform</h2>
+              <p className="mt-6 max-w-lg text-sm leading-relaxed text-bone/70 md:text-base">
+                A unique brand mark that represents purity, skin wellness, beauty, and transformation.
+              </p>
+              <p className="mt-3 max-w-lg text-sm leading-relaxed text-bone/70 md:text-base">
+                The lotus symbolizes renewal, care, and natural beauty, while the integrated <strong className="text-bone/85">&ldquo;W&rdquo;</strong> reinforces the Acrowell brand name and creates a distinctive visual signature.
+              </p>
             </RevealBlock>
           </div>
         </div>
