@@ -83,25 +83,7 @@ export function Contact() {
                     <span className="absolute -bottom-px left-0 w-0 h-px bg-ink transition-all duration-300 group-hover:w-full" />
                   </span>
                 </a>
-                <span className="text-ink/30 select-none">|</span>
-                <a
-                  href="tel:+917668182139"
-                  className="group inline-flex items-center gap-1.5 hover:text-ink transition-colors duration-300"
-                >
-                  <svg
-                    className="w-3.5 h-3.5 -ml-1 transition-transform duration-300 group-hover:translate-x-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                  </svg>
-                  <span className="relative">
-                    +91 76681 82139
-                    <span className="absolute -bottom-px left-0 w-0 h-px bg-ink transition-all duration-300 group-hover:w-full" />
-                  </span>
-                </a>
+
               </div>
             </Reveal>
           </div>
@@ -235,9 +217,7 @@ export function Footer() {
             <a href="mailto:info@esdesignlab.com" className="block hover:text-yellow transition-colors">
               info@esdesignlab.com
             </a>
-            <a href="tel:7668182139" className="block hover:text-yellow transition-colors">
-              7668182139
-            </a>
+
           </div>
         </div>
         <div className="md:col-span-3">
@@ -270,7 +250,7 @@ export function Footer() {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/company/es-design-lab/"
+                href="https://www.linkedin.com/company/es-design-lab"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 hover:text-yellow transition-all duration-300"

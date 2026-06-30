@@ -54,18 +54,8 @@ function ProjectHero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/35 to-[#050505]" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/85 via-[#050505]/20 to-[#050505]/30" />
       <motion.div style={{ y: contentY }} className="relative z-10 flex min-h-[100svh] flex-col justify-end px-6 pb-14 pt-32 md:px-10 md:pb-20">
-        <motion.a href="/work" initial={{ opacity: 0, x: -18 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="mb-10 w-fit text-xs uppercase tracking-[0.28em] text-[#ead6b4]/70 hover:text-[#ead6b4]">Back to work</motion.a>
         <div className="max-w-6xl">
-          <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }} className="text-xs uppercase tracking-[0.35em] text-[#d8b47b]">Luxury fashion brand identity</motion.p>
           <motion.h1 initial={{ y: 34 }} animate={{ y: 0 }} transition={{ delay: 0.34, duration: 0.9, ease: [0.22, 1, 0.36, 1] }} className="mt-5 font-serif text-[17vw] leading-[0.82] text-[#f6efe3] drop-shadow-[0_8px_28px_rgba(0,0,0,0.75)] md:text-[10vw] lg:text-[8.8rem]">CBA</motion.h1>
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.8 }} className="mt-8 flex max-w-4xl flex-col gap-5 border-t border-[#ead6b4]/25 pt-6 text-sm text-bone/65 md:flex-row md:items-end md:justify-between md:text-base">
-            <p className="max-w-xl leading-relaxed">A premium identity system shaped around heritage, restraint, and a refined owl-inspired emblem for a luxury fashion house.</p>
-            <div className="flex flex-wrap gap-2">
-              {['Logo Design', 'Brand Identity', 'Packaging Design'].map((tag) => (
-                <span key={tag} className="rounded-pill border border-[#ead6b4]/25 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[#ead6b4]/80">{tag}</span>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </motion.div>
     </section>
@@ -78,13 +68,13 @@ export default function CBAPage() {
       <ProjectHero />
 
       <section className="px-6 py-14 md:px-10 md:py-20">
-        <div className="mx-auto max-w-6xl border-b border-bone/15 pb-12">
+        <div className="mx-auto max-w-6xl border-b border-bone/10 pb-12">
           <div className="grid gap-10 md:grid-cols-2 md:gap-16">
             <RevealBlock>
               <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Celetise Business Advisor</p>
               <p className="mt-5 text-xs uppercase tracking-[0.3em] text-[#d8b47b]/60">Category</p>
               <p className="mt-1 text-sm leading-relaxed text-bone/70 md:text-base">Brand Identity</p>
-              <div className="mt-8 border-t border-bone/15 pt-8">
+              <div className="mt-8 border-t border-bone/10 pt-8">
                 <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">The Challenge</p>
                 <p className="mt-3 max-w-lg text-sm leading-relaxed text-bone/70 md:text-base">Most financial advisory firms use generic charts, arrows, or bar graphs in their branding.</p>
                 <p className="mt-3 max-w-lg text-sm leading-relaxed text-bone/70 md:text-base">The challenge was to create a distinctive visual identity that communicates growth and guidance while remaining clean, modern, and professional.</p>
@@ -127,7 +117,7 @@ export default function CBAPage() {
           <RevealBlock delay={0.12} className="mt-8 w-full overflow-hidden bg-[#0d0d10]">
             <img src={img5} alt="CBA brand identity visual showcase" className="w-full object-contain" />
           </RevealBlock>
-          <RevealBlock delay={0.16} className="mt-8 w-full overflow-hidden bg-[#08080a] rounded-lg">
+          <RevealBlock delay={0.16} className="mt-8 w-full">
             <video autoPlay muted loop playsInline className="w-full object-contain">
               <source src={colorVideo} type="video/mp4" />
             </video>

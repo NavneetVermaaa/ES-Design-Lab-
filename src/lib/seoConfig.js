@@ -8,7 +8,6 @@ export const SITE_CONFIG = {
   description: 'Premium creative design studio specializing in branding, visual design, and video editing for ambitious brands.',
   domain: 'https://esdesignlab.com', // Update with actual domain
   image: 'https://esdesignlab.com/og-image.jpg', // Update with actual OG image URL
-  phone: '+1 (555) 123-4567', // Update with actual phone
   email: 'hello@esdesignlab.com', // Update with actual email
   address: '123 Creative Street, Design City, DC 12345', // Update with actual address
   socialProfiles: {
@@ -25,10 +24,10 @@ export const SERVICES_META = {
     description: 'Build powerful brand identities for startups and established brands. Logo design, identity systems, and visual guidelines.',
     slug: 'branding',
   },
-  'visual-design': {
-    title: 'Visual Design Services | ES Design Lab',
+  'communication-design': {
+    title: 'Communication Design Services | ES Design Lab',
     description: 'Editorial, packaging, and marketing design. Brochures, reports, retail packaging, and exhibition design.',
-    slug: 'visual-design',
+    slug: 'communication-design',
   },
   'video-editing': {
     title: 'Video Editing & Motion Design | ES Design Lab',

@@ -1,18 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import grand5 from '@/assets/work-grand5.jpg'
-import billboard from '@/assets/work-billboard.jpg'
-import train from '@/assets/work-train.jpg'
-import ashita from '@/assets/work-ashita.jpg'
-
-const projects = [
-  { img: grand5, title: 'Grand 5', tag: 'Logo Design · 2024' },
-  { img: billboard, title: 'Cashly', tag: 'Campaign · Out of Home' },
-  { img: train, title: 'Atelier Rouge', tag: 'Editorial · Fashion' },
-  { img: ashita, title: 'Ashita Gupta', tag: 'Beauty · Identity' },
-  { img: grand5, title: 'Grand 5', tag: 'Tabletop System' },
-  { img: ashita, title: 'Makeover', tag: 'Film · Direction' },
-]
+import { projects } from '@/data/projects'
 
 export default function Work() {
   const ref = useRef(null)

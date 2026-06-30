@@ -51,10 +51,10 @@ export const servicePages = {
     contactButton: 'bg-yellow',
     formText: 'text-bone',
   },
-  '/visual-design': {
-    key: 'visual-design',
-    label: 'Visual Design',
-    route: '/visual-design',
+  '/communication-design': {
+    key: 'communication-design',
+    label: 'Communication Design',
+    route: '/communication-design',
     heroBg: '#D8EF58',
     heroText: ['Design That Makes', 'People Pause and', 'Feel Something.'],
     heroAccentLines: [0, 1, 2],
@@ -65,7 +65,7 @@ export const servicePages = {
     intro: {
       eyebrow: 'At ES Design Lab',
       eyebrowClass: 'text-bone',
-      lead: "visual design isn't about getting approval. It's about getting a reaction.",
+      lead: "communication design isn't about getting approval. It's about getting a reaction.",
       paragraphs: [
         'We design visuals that guide the eye, simplify the message, and make the experience feel effortless.',
       ],

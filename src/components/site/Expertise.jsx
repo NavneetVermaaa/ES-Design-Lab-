@@ -11,7 +11,7 @@ const services = [
   },
   {
     title: 'Communication Design',
-    href: '/visual-design',
+    href: '/communication-design',
     headline: 'Make it inevitable.',
     tagline: "Every pixel earns its place. Visual systems that feel like they've always belonged.",
     body: 'Editorial layouts, packaging, social systems and digital surfaces - designed to feel inevitable. Every pixel earns its place in your visual language.',

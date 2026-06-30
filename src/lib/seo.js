@@ -32,7 +32,7 @@ export const getMetaTags = ({
 
 /**
  * Get service page meta tags
- * @param {string} serviceKey - 'branding', 'visual-design', 'video-editing'
+ * @param {string} serviceKey - 'branding', 'communication-design', 'video-editing'
  * @returns {Object} Meta tags for service page
  */
 export const getServiceMetaTags = (serviceKey) => {

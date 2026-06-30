@@ -12,26 +12,8 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 
 import { Contact, Footer } from '@/components/site/Contact.jsx'
 
-import grand5 from '@/assets/work-grand5.jpg'
-import billboard from '@/assets/work-billboard.jpg'
-import train from '@/assets/work-train.jpg'
 import ashita from '@/assets/work-ashita.jpg'
-import rojinHero from '../../assets/Project1/1.png'
-import acrowellHero from '../../assets/Acrowell/1.png'
-import cbaHero from '../../assets/CBA/2.png'
-import mriHero from '../../assets/MRI/1.png'
-import spfHero from '../../assets/SPF/1.png'
-
-const projects = [
-  { id: 1, title: 'Acrowell', category: 'Branding', img: acrowellHero, size: 'square', href: '/projects/acrowell' },
-  { id: 2, title: 'CBA', category: 'Branding', img: cbaHero, size: 'square', href: '/projects/cba' },
-  { id: 3, title: 'Rojin Phillip', category: 'Branding', img: rojinHero, size: 'square', href: '/work/rojin-phillip' },
-  { id: 4, title: 'Sneaker Fest', category: 'Branding', img: billboard, size: 'square', href: '/projects/sneaker-fest' },
-  { id: 5, title: 'MRI Master', category: 'Branding', img: mriHero, size: 'square', href: '/projects/mri' },
-  { id: 6, title: 'The Sign & Print Factory', category: 'Branding', img: spfHero, size: 'square', href: '/projects/spf' },
-]
-
-const categories = ['All', 'Branding', 'Visual Design', 'Video Editing']
+import { projects, categories } from '@/data/projects'
 
 const stats = [
   { value: 50, suffix: '+', label: 'Projects Delivered' },

@@ -8,8 +8,10 @@ import AcrowellPage from '@/pages/AcrowellPage.jsx'
 import CBAPage from '@/pages/CBAPage.jsx'
 import MRIPage from '@/pages/MRIPage.jsx'
 import SPFPage from '@/pages/SPFPage.jsx'
+import NestPage from '@/pages/NestPage.jsx'
 import AboutPage from '@/pages/AboutPage.jsx'
 import { servicePages } from '@/data/services.js'
+import ScrollToTop from '@/components/ScrollToTop.jsx'
 import { getCaseStudyMetaTags, getPageMetaTags, getServiceMetaTags } from '@/lib/seo.js'
 import { getCreativeWorkSchema, getServiceSchema } from '@/lib/seoConfig.js'
 
@@ -97,6 +99,19 @@ export default function App() {
       image: seoData.image,
       tags: caseStudy.services,
     })
+  } else if (path === '/projects/nest') {
+    const caseStudy = {
+      name: 'Nest',
+      slug: 'nest',
+      description: 'Brand identity system for Nest by ES Design Lab.',
+      services: ['Logo Design', 'Brand Identity', 'Packaging Design'],
+    }
+    seoData = getCaseStudyMetaTags(caseStudy)
+    seoData.structuredData = getCreativeWorkSchema({
+      ...caseStudy,
+      image: seoData.image,
+      tags: caseStudy.services,
+    })
   } else if (path === '/about') {
     seoData = getPageMetaTags('about')
   } else if (path === '/work') {
@@ -112,7 +127,9 @@ export default function App() {
   }
 
   return (
-    <MainLayout seoData={seoData}>
+    <>
+      <ScrollToTop path={path} />
+      <MainLayout seoData={seoData}>
       {path === '/about' ? (
         <AboutPage />
       ) : path === '/work/rojin-phillip' ? (
@@ -125,6 +142,8 @@ export default function App() {
         <MRIPage />
       ) : path === '/projects/spf' ? (
         <SPFPage />
+      ) : path === '/projects/nest' ? (
+        <NestPage />
       ) : path === '/work' ? (
         <WorkPage />
       ) : service ? (
@@ -133,5 +152,6 @@ export default function App() {
         <Home />
       )}
     </MainLayout>
+    </>
   )
 }

@@ -140,7 +140,7 @@ export default function RojinPhillipPage() {
       <ProjectHero />
 
       <section className="px-6 py-14 md:px-10 md:py-20">
-        <div className="mx-auto max-w-6xl border-b border-bone/15 pb-12">
+        <div className="mx-auto max-w-6xl border-b border-bone/10 pb-12">
           {/* <RevealBlock className="mb-6 flex flex-wrap gap-2">
             {['Logo Design', 'Brand Identity Design', 'Packaging Design'].map((tag) => (
               <span key={tag} className="rounded-pill border border-[#ead6b4]/25 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#ead6b4]/80">
@@ -197,7 +197,7 @@ export default function RojinPhillipPage() {
       </section>
 
       <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto grid max-w-6xl gap-8 border-b border-bone/15 pb-14 md:grid-cols-[0.34fr_0.66fr] md:items-center">
+        <div className="mx-auto grid max-w-6xl gap-8 border-b border-bone/10 pb-14 md:grid-cols-[0.34fr_0.66fr] md:items-center">
           <RevealBlock>
             <p className="text-sm font-semibold md:text-base"><span className="text-[#d8b47b]">Brand</span> <span className="text-[#d8b47b]">Keywords</span></p>
             <div className="mt-7 space-y-1.5">
@@ -244,7 +244,7 @@ export default function RojinPhillipPage() {
       </section>
 
       <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl border-b border-bone/15 pb-14">
+        <div className="mx-auto max-w-6xl border-b border-bone/10 pb-14">
           <div className="grid gap-4 md:grid-cols-3">
             {developmentImages.map((item, index) => (
               <motion.figure
@@ -272,7 +272,7 @@ export default function RojinPhillipPage() {
 
       <section className="px-6 pb-16 md:px-10 md:pb-24">
         <div className="mx-auto max-w-6xl">
-          <RevealBlock className="grid gap-8 border-b border-bone/15 pb-10 md:grid-cols-[0.22fr_0.78fr] md:items-start">
+          <RevealBlock className="grid gap-8 border-b border-bone/10 pb-10 md:grid-cols-[0.22fr_0.78fr] md:items-start">
             <p className="text-xs uppercase tracking-[0.3em] text-[#d8b47b]">Concept</p>
             <p className="max-w-4xl text-sm leading-relaxed text-bone/72 md:text-base">
               The logo combines the letters R and P to form a refined owl-inspired
@@ -290,7 +290,7 @@ export default function RojinPhillipPage() {
             />
           </RevealBlock>
 
-          <RevealBlock delay={0.08} className="border-b border-bone/15 py-12 text-center md:py-16">
+          <RevealBlock delay={0.08} className="border-b border-bone/10 py-12 text-center md:py-16">
             <p className="font-titling text-4xl uppercase leading-none text-bone md:text-6xl">
               Perpetua Titling MT
             </p>
@@ -412,7 +412,7 @@ export default function RojinPhillipPage() {
       </section>
 
       <section className="px-6 pb-16 md:px-10 md:pb-28">
-        <div className="mx-auto grid max-w-6xl gap-4 border-t border-bone/15 pt-10 md:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl gap-4 border-t border-bone/10 pt-10 md:grid-cols-2">
           <RevealBlock className="bg-[#e8dfcf] p-5 text-center md:p-8">
             <p className="mb-4 font-serif text-3xl uppercase leading-none text-[#30281f] md:text-4xl">
               Website
@@ -428,7 +428,7 @@ export default function RojinPhillipPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[#d8b47b]/30 to-transparent mx-6 md:mx-10" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[#d8b47b]/20 to-transparent mx-6 md:mx-10" />
       <Contact />
       <Footer />
     </main>

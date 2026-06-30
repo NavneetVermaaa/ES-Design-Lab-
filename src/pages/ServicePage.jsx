@@ -5,6 +5,8 @@ import { useRef, useState } from 'react'
 import brHeading from '@/assets/Br-heading.svg'
 import visualDesignBanner from '@/assets/Visual-design-banner.svg'
 import videoEditingBanner from '@/assets/Video-editing-banner.svg'
+import commDesignVideo from '../../assets/COmmunication design video.mp4'
+import videoEditingVideo from '../../assets/Video editing.mp4'
 
 const cardFill = {
   violet: 'bg-violet text-bone border-yellow',
@@ -14,7 +16,7 @@ const cardFill = {
   orange: 'bg-[#f04a2a] text-bone border-yellow',
 }
 
-function VideoPlaceholder({ tone }) {
+function VideoPlaceholder({ tone, videoSrc }) {
   const isBranding = tone === 'leaves'
   const leafGradient =
     isBranding
@@ -24,7 +26,11 @@ function VideoPlaceholder({ tone }) {
   return (
     <Reveal instant={isBranding} className={isBranding ? 'mx-auto mt-12 max-w-[42rem] md:mt-14' : 'mt-16 md:mt-20'}>
       <div className={`relative overflow-hidden bg-gradient-to-br ${leafGradient} ${isBranding ? 'aspect-[2.31/1]' : 'aspect-[16/7]'}`}>
-        {isBranding ? (
+        {videoSrc ? (
+          <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover">
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        ) : isBranding ? (
           <>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(75,188,119,.95)_0_6%,transparent_16%),radial-gradient(circle_at_34%_18%,rgba(18,115,61,.95)_0_12%,transparent_30%),radial-gradient(circle_at_58%_5%,rgba(31,145,82,.85)_0_7%,transparent_19%),radial-gradient(circle_at_79%_42%,rgba(68,186,98,.9)_0_11%,transparent_26%),radial-gradient(circle_at_92%_23%,rgba(19,101,53,.82)_0_12%,transparent_29%),linear-gradient(115deg,rgba(3,22,14,.8),rgba(3,18,12,.25)_42%,rgba(4,12,9,.9))]" />
             <div className="absolute inset-0 opacity-75 [background-image:linear-gradient(112deg,transparent_0_11%,rgba(117,219,151,.38)_11.3%,transparent_13.5%,transparent_28%,rgba(90,190,126,.33)_29%,transparent_31%,transparent_48%,rgba(110,210,139,.3)_49%,transparent_51%,transparent_68%,rgba(93,190,130,.32)_69%,transparent_71%)]" />
@@ -36,13 +42,15 @@ function VideoPlaceholder({ tone }) {
             <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_28%,rgba(255,255,255,.12)_28%_29%,transparent_30%_100%)] bg-[length:180px_100%]" />
           </>
         )}
-        <button
-          type="button"
-          aria-label="Video placeholder"
-          className="absolute left-1/2 top-1/2 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[4px] border-bone/90 text-bone/95 md:h-24 md:w-24"
-        >
-          <span className="ml-1 h-0 w-0 border-y-[15px] border-l-[24px] border-y-transparent border-l-bone md:border-y-[18px] md:border-l-[29px]" />
-        </button>
+        {!videoSrc && (
+          <button
+            type="button"
+            aria-label="Video placeholder"
+            className="absolute left-1/2 top-1/2 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[4px] border-bone/90 text-bone/95 md:h-24 md:w-24"
+          >
+            <span className="ml-1 h-0 w-0 border-y-[15px] border-l-[24px] border-y-transparent border-l-bone md:border-y-[18px] md:border-l-[29px]" />
+          </button>
+        )}
       </div>
     </Reveal>
   )
@@ -50,7 +58,7 @@ function VideoPlaceholder({ tone }) {
 
 function ServiceCards({ service }) {
   const isBranding = service.key === 'branding'
-  const isVisualDesign = service.key === 'visual-design'
+  const isVisualDesign = service.key === 'communication-design'
   const isVideoEditing = service.key === 'video-editing'
 
   if (isBranding) {
@@ -80,7 +88,7 @@ function ServiceCards({ service }) {
                 whileHover={{
                   y: -10,
                   scale: 1.015,
-                  backgroundColor: index === 3 ? '#F5E500' : '#5E4A96',
+                  backgroundColor: index === 3 ? '#F5E500' : index === 0 ? '#5E4A96' : '#050505',
                   boxShadow: '0 20px 45px rgba(255,230,0,0.18)',
                 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -334,7 +342,7 @@ export default function ServicePage({ service }) {
             </h1>
           </motion.div>
         </section>
-      ) : service.key === 'visual-design' ? (
+      ) : service.key === 'communication-design' ? (
         <section
           className="relative isolate flex min-h-[52rem] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
           style={{ backgroundColor: service.heroBg }}
@@ -405,7 +413,7 @@ export default function ServicePage({ service }) {
             </div>
           </Reveal>
 
-          <VideoPlaceholder tone={service.videoTone} />
+          <VideoPlaceholder tone={service.videoTone} videoSrc={service.key === 'communication-design' ? commDesignVideo : service.key === 'video-editing' ? videoEditingVideo : undefined} />
 
           {service.intro.afterVideo ? (
             <Reveal>
@@ -452,7 +460,7 @@ export default function ServicePage({ service }) {
                 Would you rather directly get in touch? We always have the time for a call or email!
               </p>
               <p className={`mt-5 text-lg font-medium ${service.formText}`}>
-                info@esdesignlab.com | +91 7668182139
+                info@esdesignlab.com
               </p>
             </div>
           </Reveal>

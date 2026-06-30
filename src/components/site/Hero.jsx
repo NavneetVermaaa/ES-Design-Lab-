@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import logoSrc from '../../assets/logo.png'
 
 export function Nav() {
-  const isVisualDesign = window.location.pathname === '/visual-design'
+  const isVisualDesign = window.location.pathname === '/communication-design'
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -98,21 +98,7 @@ export function Hero() {
           transition={{ delay: 1.1, duration: 0.8 }}
           className="mt-10 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12"
         >
-          <p className="max-w-md text-bone/70 text-lg leading-relaxed">
-            We help brands create a clear and consistent<br className="sm:hidden" />
-            presence through thoughtful design, branding,<br className="sm:hidden" /> and visual storytelling.
-          </p>
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-3 self-start md:self-auto"
-          >
-            <span className="rounded-pill bg-violet text-ink px-7 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-transform group-hover:-translate-x-1">
-              Contact us
-            </span>
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-yellow text-ink transition-transform group-hover:translate-x-1">
-              →
-            </span>
-          </a>
+
         </motion.div>
       </motion.div>
 
