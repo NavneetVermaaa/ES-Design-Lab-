@@ -94,7 +94,7 @@ export default function SPFPage() {
 
       <section className="px-6 pb-16 md:px-10 md:pb-24">
         <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock className="bg-white p-10 md:p-16">
             <img
               src={img2}
               alt="SPF brand mark"
@@ -134,60 +134,35 @@ export default function SPFPage() {
               <strong className="text-bone/85">Inspired by the four essential printing colors, representing the company&rsquo;s core expertise.</strong>
             </p>
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock delay={0.08} className="mt-8 bg-white">
             <img
               src={img3}
               alt="SPF brand development"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock delay={0.12} className="mt-8 bg-white">
             <img
               src={img4}
               alt="SPF brand development"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock delay={0.16} className="mt-8 bg-white">
             <img
               src={img5}
               alt="SPF brand development"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock delay={0.2} className="mt-8 bg-white">
             <img
               src={img6}
               alt="SPF brand development"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock delay={0.24} className="mt-8 bg-white">
             <img
               src={img7}
               alt="SPF brand development"

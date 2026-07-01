@@ -108,53 +108,33 @@ export default function MRIPage() {
 
       <section className="px-6 pb-16 md:px-10 md:pb-24">
         <div className="mx-auto max-w-6xl">
-          <RevealBlock className="mx-auto max-w-3xl text-center">
+          <RevealBlock className="mx-auto max-w-3xl md:max-w-5xl text-center">
             <p className="text-sm leading-relaxed text-bone/70 md:text-base">
               After evaluating several directions, the proton-inspired concept was selected and refined into a clean, scalable mark. The final identity simplifies a complex scientific concept into a memorable visual symbol.
             </p>
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-6 md:px-10">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.08} className="mt-8">
             <img
               src={img3}
               alt="MRI brand development"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-8 md:px-10">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.12} className="mt-8">
             <img
               src={img4}
               alt="MRI brand development"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.16} className="mt-8">
             <img
               src={img5}
               alt="MRI brand development"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.2} className="mt-8">
             <img
               src={img6}
               alt="MRI brand development"

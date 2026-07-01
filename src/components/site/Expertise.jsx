@@ -85,7 +85,7 @@ export default function Expertise() {
                       <span className="block text-yellow font-medium mb-2">{service.headline}</span>
                       {service.tagline}
                     </p>
-                    <p className="mt-4 hidden lg:block text-bone/40 text-sm leading-relaxed line-clamp-2">
+                    <p className="mt-4 text-bone/40 text-sm leading-relaxed line-clamp-2">
                       {service.body}
                     </p>
                   </div>

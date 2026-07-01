@@ -27,7 +27,7 @@ function VideoPlaceholder({ tone, videoSrc }) {
     <Reveal instant={isBranding} className={isBranding ? 'mx-auto mt-12 max-w-[42rem] md:mt-14' : 'mt-16 md:mt-20'}>
       <div className={`relative overflow-hidden bg-gradient-to-br ${leafGradient} ${isBranding ? 'aspect-[2.31/1]' : 'aspect-[16/7]'}`}>
         {videoSrc ? (
-          <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover">
+          <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-contain">
             <source src={videoSrc} type="video/mp4" />
           </video>
         ) : isBranding ? (
@@ -70,7 +70,7 @@ function ServiceCards({ service }) {
     ]
 
     return (
-      <div className="-mx-4 mt-14 grid gap-2 pt-6 sm:grid-cols-2 md:grid-cols-4">
+      <div className="grid gap-2 pt-6 sm:grid-cols-2 md:grid-cols-4">
         {service.cards.map((card, index) => {
           const c = cardColors[index]
           return (
@@ -88,10 +88,10 @@ function ServiceCards({ service }) {
                 whileHover={{
                   y: -10,
                   scale: 1.015,
-                  backgroundColor: index === 3 ? '#F5E500' : index === 0 ? '#5E4A96' : '#050505',
+                  backgroundColor: '#6950A7',
                   boxShadow: '0 20px 45px rgba(255,230,0,0.18)',
                 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.35, ease: 'ease' }}
               >
                 <h3
                   className="font-display text-[clamp(1rem,2.5vw,1.875rem)] uppercase leading-none tracking-normal lg:text-3xl"
@@ -100,12 +100,12 @@ function ServiceCards({ service }) {
                   {index + 1}. {card.title}
                 </h3>
                 {card.body.split('\n\n').map((part, i) => (
-                  <p key={i} className="text-[0.64rem] font-medium leading-relaxed lg:text-sm mt-3">
+                  <p key={i} className="text-xs md:text-sm font-medium leading-relaxed mt-3">
                     {part}
                   </p>
                 ))}
                 {card.meta ? (
-                  <p className="mt-auto pt-4 text-[0.58rem] font-bold leading-relaxed tracking-wide lg:text-xs">
+                  <p className="mt-auto pt-4 text-[0.65rem] md:text-xs font-bold leading-relaxed tracking-wide">
                     {card.meta}
                   </p>
                 ) : null}
@@ -151,12 +151,12 @@ function ServiceCards({ service }) {
                 index === 0 ? 'rounded-bl-[2.4rem]' : ''
               } ${index === service.cards.length - 1 ? 'rounded-br-[2.4rem]' : ''}`}
             >
-              <h3 className="font-display text-3xl uppercase leading-none md:text-4xl text-[#FFE600] hover:text-[#0A0A0A]">
+              <h3 className="font-display text-3xl uppercase leading-none md:text-4xl text-[#FFE600]">
                 {index + 1}. {card.title}
               </h3>
-              <p className="mt-8 text-sm font-medium leading-relaxed opacity-85 hover:opacity-100">{card.body}</p>
+              <p className="mt-8 text-sm font-medium leading-relaxed opacity-85">{card.body}</p>
               {card.meta ? (
-                <p className="mt-auto pt-6 text-xs font-bold leading-relaxed opacity-85 hover:opacity-100">{card.meta}</p>
+                <p className="mt-auto pt-6 text-xs font-bold leading-relaxed opacity-85">{card.meta}</p>
               ) : null}
             </article>
           </Reveal>
@@ -316,6 +316,37 @@ export default function ServicePage({ service }) {
     </h1>
   )
 
+  const textContent = (
+    <>
+      {service.intro.quoteFirst ? (
+        <p className="text-3xl md:text-4xl lg:text-5xl leading-tight text-yellow"
+           style={{ fontFamily: 'Anton, system-ui, sans-serif', fontStyle: 'normal', fontWeight: 300 }}>
+          {service.intro.quoteFirst}
+        </p>
+      ) : (
+        <p className="text-lg md:text-xl font-medium leading-relaxed text-bone/90">
+          <span className={service.intro.eyebrowClass}>{service.intro.eyebrow}</span>,{' '}
+          {service.intro.lead}
+        </p>
+      )}
+
+      {service.intro.paragraphs.map((paragraph, idx) => (
+        <p key={idx} className="mt-10 text-lg md:text-xl font-medium leading-relaxed text-bone/90">
+          {paragraph}
+        </p>
+      ))}
+
+      {service.intro.quote ? (
+        <p className="mt-20 text-3xl md:text-4xl lg:text-5xl leading-tight text-yellow"
+           style={{ fontFamily: 'Anton, system-ui, sans-serif', fontStyle: 'normal', fontWeight: 300 }}>
+          {service.intro.quote}
+        </p>
+      ) : null}
+
+      {service.intro.closing ? <p className="mt-10 text-lg md:text-xl font-medium leading-relaxed text-bone/90">{service.intro.closing}</p> : null}
+    </>
+  )
+
   return (
     <main className="bg-ink text-bone overflow-x-hidden">
       {service.key === 'branding' ? (
@@ -344,7 +375,7 @@ export default function ServicePage({ service }) {
         </section>
       ) : service.key === 'communication-design' ? (
         <section
-          className="relative isolate flex min-h-[52rem] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
+          className="relative isolate flex min-h-[100svh] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
           style={{ backgroundColor: service.heroBg }}
         >
           <img
@@ -357,7 +388,7 @@ export default function ServicePage({ service }) {
         </section>
       ) : service.key === 'video-editing' ? (
         <section
-          className="relative isolate flex min-h-[52rem] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
+          className="relative isolate flex min-h-[100svh] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
           style={{ backgroundColor: service.heroBg }}
         >
           <img
@@ -370,7 +401,7 @@ export default function ServicePage({ service }) {
         </section>
       ) : (
         <section
-          className="relative flex min-h-[52rem] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
+          className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pb-24 pt-28 md:min-h-[42rem] md:px-10 md:pt-20"
           style={{ backgroundColor: service.heroBg }}
         >
           <div className={`absolute left-[9%] top-[12%] h-[28rem] w-[28rem] rounded-full ${service.shapeClass}`} />
@@ -382,48 +413,45 @@ export default function ServicePage({ service }) {
       )}
 
       <section className="px-6 md:px-10 py-20 md:py-32">
-        <div className="mx-auto max-w-7xl">
-          <Reveal instant={service.key === 'branding'}>
-            <div className="max-w-3xl">
-              {service.intro.quoteFirst ? (
-                <p className="font-serif-i text-3xl md:text-4xl lg:text-5xl leading-tight text-yellow">
-                  {service.intro.quoteFirst}
-                </p>
-              ) : (
-                <p className="text-lg md:text-xl font-medium leading-relaxed text-bone/90">
-                  <span className={service.intro.eyebrowClass}>{service.intro.eyebrow}</span>,{' '}
-                  {service.intro.lead}
-                </p>
-              )}
+        <div className={`mx-auto ${service.key === 'branding' ? 'max-w-[1440px] w-[88%] lg:w-[85%]' : 'max-w-7xl'}`}>
+          {service.key === 'branding' ? (
+            <>
+              {/* 1. TEXT SECTION */}
+              <Reveal instant={true}>
+                <div className="max-w-[760px]">
+                  {textContent}
+                </div>
+              </Reveal>
 
-              {service.intro.paragraphs.map((paragraph, idx) => (
-                <p key={idx} className="mt-10 text-lg md:text-xl font-medium leading-relaxed text-bone/90">
-                  {paragraph}
-                </p>
-              ))}
+              {/* 2. BANNER IMAGE */}
+              <Reveal instant={true} className="mt-12 md:mt-14 mb-12 md:mb-14">
+                <img src={brHeading} alt="" className="w-full h-auto object-contain" />
+              </Reveal>
 
-              {service.intro.quote ? (
-                <p className="mt-20 font-serif-i text-3xl md:text-4xl lg:text-5xl leading-tight text-yellow"
-                   style={service.key === 'branding' ? { fontFamily: 'Anton, system-ui, sans-serif', fontStyle: 'normal', fontWeight: 300 } : undefined}>
-                  {service.intro.quote}
-                </p>
+              {/* 3. PROCESS CARDS */}
+              <ServiceCards service={service} />
+            </>
+          ) : (
+            <>
+              <Reveal>
+                <div className="mx-auto max-w-xl">
+                  {textContent}
+                </div>
+              </Reveal>
+
+              <VideoPlaceholder tone={service.videoTone} videoSrc={service.key === 'communication-design' ? commDesignVideo : service.key === 'video-editing' ? videoEditingVideo : undefined} />
+
+              {service.intro.afterVideo ? (
+                <Reveal>
+                  <h2 className="mt-12 font-display text-4xl uppercase leading-none text-[#f04a2a] md:text-6xl">
+                    {service.intro.afterVideo}
+                  </h2>
+                </Reveal>
               ) : null}
 
-              {service.intro.closing ? <p className="mt-10 text-lg md:text-xl font-medium leading-relaxed text-bone/90">{service.intro.closing}</p> : null}
-            </div>
-          </Reveal>
-
-          <VideoPlaceholder tone={service.videoTone} videoSrc={service.key === 'communication-design' ? commDesignVideo : service.key === 'video-editing' ? videoEditingVideo : undefined} />
-
-          {service.intro.afterVideo ? (
-            <Reveal>
-              <h2 className="mt-12 font-display text-4xl uppercase leading-none text-[#f04a2a] md:text-6xl">
-                {service.intro.afterVideo}
-              </h2>
-            </Reveal>
-          ) : null}
-
-          <ServiceCards service={service} />
+              <ServiceCards service={service} />
+            </>
+          )}
 
           {service.bestFor ? (
             <Reveal>
@@ -453,7 +481,7 @@ export default function ServicePage({ service }) {
             <div>
               <h2 className={`font-display text-[clamp(2.5rem,7vw,6rem)] uppercase leading-[0.88] md:text-8xl ${service.contactText}`}>
                 Ready to <br />
-                <span className="font-serif-i lowercase">build</span> your <br />
+                <span className="lowercase" style={{ fontFamily: 'Anton, system-ui, sans-serif', fontStyle: 'normal' }}>build</span> your <br />
                 brand?
               </h2>
               <p className={`mt-16 max-w-md text-lg font-medium leading-relaxed ${service.formText}`}>

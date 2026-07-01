@@ -61,7 +61,7 @@ export default function NestPage() {
               <p className="mt-5 text-xs uppercase tracking-[0.3em] text-[#d8b47b]/60">Tags</p>
               <div className="mt-1 flex flex-wrap gap-2">
                 {['Brand Applications', 'Marketing Design', 'Campaign Creatives', 'Digital Assets'].map((tag) => (
-                  <span key={tag} className="rounded-pill border border-[#ead6b4]/25 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[#ead6b4]/80">
+                  <span key={tag} className="rounded-pill border border-[#ead6b4]/25 px-3 py-1 text-[11px] md:text-[10px] uppercase tracking-[0.18em] text-[#ead6b4]/80">
                     {tag}
                   </span>
                 ))}
@@ -80,17 +80,12 @@ export default function NestPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-6 md:px-10 md:pb-8">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
-            <img src={img2} alt="Nest brand identity showcase" className="mx-auto w-full h-auto object-contain" />
-          </RevealBlock>
-        </div>
-      </section>
-
       <section className="px-6 pb-16 md:px-10 md:pb-24">
         <div className="mx-auto max-w-6xl border-b border-bone/10 pb-14">
           <RevealBlock className="bg-white">
+            <img src={img2} alt="Nest brand identity showcase" className="mx-auto w-full h-auto object-contain" />
+          </RevealBlock>
+          <RevealBlock delay={0.08} className="mt-8 bg-white">
             <img src={img3} alt="Nest brand identity development" className="mx-auto w-full h-auto object-contain" />
           </RevealBlock>
         </div>
@@ -108,33 +103,21 @@ export default function NestPage() {
 
       <section className="px-6 pb-16 md:px-10 md:pb-24">
         <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock delay={0.12} className="bg-white">
             <img src={img4} alt="Nest brand identity showcase" className="mx-auto w-full h-auto object-contain" />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.14} className="mt-8 bg-white">
+            <img src={img5} alt="Nest brand identity showcase" className="mx-auto w-full h-auto object-contain" />
+          </RevealBlock>
+          <RevealBlock delay={0.16} className="mt-8">
             <video autoPlay muted loop playsInline className="w-full object-contain">
               <source src={video6} type="video/mp4" />
             </video>
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock delay={0.2} className="mt-8 bg-white">
             <img src={img7} alt="Nest brand identity showcase" className="mx-auto w-full h-auto object-contain" />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock className="bg-white">
+          <RevealBlock delay={0.24} className="mt-8 bg-white">
             <img src={img8} alt="Nest brand identity showcase" className="mx-auto w-full h-auto object-contain" />
           </RevealBlock>
         </div>

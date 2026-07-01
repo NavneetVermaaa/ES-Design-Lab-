@@ -121,64 +121,39 @@ export default function AcrowellPage() {
             />
           </RevealBlock>
           <RevealBlock delay={0.08} className="mt-8 text-center">
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-bone/70 md:text-base">
+            <p className="mx-auto max-w-4xl text-sm leading-relaxed text-bone/70 md:text-base">
               <strong className="text-bone/85">Together, they create a symbol that reflects healthy skin, confidence, and scientific skincare expertise.</strong>
             </p>
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.12} className="mt-8">
             <img
               src={img4}
               alt="Acrowell brand mark detail"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.16} className="mt-8">
             <img
               src={img5}
               alt="Acrowell brand mark detail"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.2} className="mt-8">
             <img
               src={img6}
               alt="Acrowell brand mark detail"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.24} className="mt-8">
             <img
               src={img7}
               alt="Acrowell brand mark detail"
               className="mx-auto w-full h-auto object-contain"
             />
           </RevealBlock>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <RevealBlock>
+          <RevealBlock delay={0.28} className="mt-8">
             <img
               src={img8}
               alt="Acrowell brand mark detail"

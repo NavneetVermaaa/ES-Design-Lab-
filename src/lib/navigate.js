@@ -1,3 +1,12 @@
+function scrollToTop() {
+  const lenis = window.__lenis
+  if (lenis) {
+    lenis.scrollTo(0, { immediate: true, duration: 0 })
+  } else {
+    window.scrollTo(0, 0)
+  }
+}
+
 export function scrollToHash(hash) {
   if (!hash) return
   const id = hash.replace('#', '')
@@ -28,9 +37,18 @@ export function navigate(href) {
           scrollToHash(targetHash)
         })
       })
+    } else {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          scrollToTop()
+        })
+      })
     }
   } else if (hash) {
     scrollToHash(targetHash)
+    window.history.replaceState({}, '', targetPath + targetHash)
+  } else {
+    scrollToTop()
     window.history.replaceState({}, '', targetPath + targetHash)
   }
 }

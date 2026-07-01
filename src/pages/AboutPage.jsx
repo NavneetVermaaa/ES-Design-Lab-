@@ -8,7 +8,7 @@ import aboutSectionBg from '@/assets/about-section-bg.svg'
 
 function AboutHeroSection() {
     return (
-        <section className="relative w-full min-h-[82vh] bg-black overflow-hidden px-[80px] pt-[130px] pb-[60px]">
+        <section className="relative w-full min-h-[82vh] bg-black overflow-hidden px-6 md:px-10 pt-[130px] pb-[60px]">
             <div className="w-full max-w-[1800px]">
                 <Reveal delay={0.08}>
                     <p

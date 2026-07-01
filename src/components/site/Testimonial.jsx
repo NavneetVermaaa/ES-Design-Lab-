@@ -96,7 +96,7 @@ export default function Testimonial() {
       <button
         onClick={prev}
         aria-label="Previous testimonial"
-        className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-full bg-ink/10 text-ink/50 hover:bg-ink/20 hover:text-ink transition-all duration-300 text-xl md:text-2xl"
+        className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 grid h-11 w-11 md:h-12 md:w-12 place-items-center rounded-full bg-ink/10 text-ink/50 hover:bg-ink/20 hover:text-ink transition-all duration-300 text-xl md:text-2xl"
       >
         <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -105,7 +105,7 @@ export default function Testimonial() {
       <button
         onClick={next}
         aria-label="Next testimonial"
-        className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-full bg-ink/10 text-ink/50 hover:bg-ink/20 hover:text-ink transition-all duration-300 text-xl md:text-2xl"
+        className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 grid h-11 w-11 md:h-12 md:w-12 place-items-center rounded-full bg-ink/10 text-ink/50 hover:bg-ink/20 hover:text-ink transition-all duration-300 text-xl md:text-2xl"
       >
         <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />

@@ -12,7 +12,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 
 import { Contact, Footer } from '@/components/site/Contact.jsx'
 
-import ashita from '@/assets/work-ashita.jpg'
+import rojinHero from '../../assets/Project1/1.png'
 import { projects, categories } from '@/data/projects'
 
 const stats = [
@@ -108,7 +108,7 @@ function HeroSection() {
             transition={{ staggerChildren: 0.08 }}
           >
             {words.map((w, i) => (
-              <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.25em]">
+              <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.25em] pb-[0.1em]">
                 <motion.span
                   className="inline-block"
                   variants={{
@@ -199,9 +199,13 @@ function ProjectCard({ project, index }) {
           <h3 className="font-display text-xl md:text-2xl text-bone">
             {project.title}
           </h3>
-          <p className="text-xs md:text-sm text-bone/50 mt-1 tracking-wide uppercase">
-            {project.category}
-          </p>
+          <div className="flex flex-wrap gap-1.5 mt-2">
+            {project.tags?.map((t, i) => (
+              <span key={i} className="rounded-pill border border-bone/25 px-3 py-1 text-[11px] md:text-[10px] uppercase tracking-[0.18em] text-bone/50">
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="absolute top-5 right-5 w-8 h-8 rounded-full bg-bone/10 flex items-center justify-center opacity-0 -translate-x-4 translate-y-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 ease-out">
@@ -238,8 +242,8 @@ function FeaturedShowcase() {
 
         <div className="overflow-hidden aspect-[4/3] md:aspect-auto">
           <motion.img
-            src={ashita}
-            alt="Featured project"
+            src={rojinHero}
+            alt="Rojin Phillip luxury fashion brand identity"
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
         </div>
@@ -249,16 +253,14 @@ function FeaturedShowcase() {
             Featured Project
           </p>
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl text-bone leading-[0.9] mt-4 md:mt-6">
-            Ashita <br />
-            <span className="text-yellow">Gupta</span>
+            Rojin <br />
+            <span className="text-yellow">Phillip</span>
           </h2>
           <p className="text-bone/50 text-sm md:text-base leading-relaxed mt-6 max-w-md">
-            A complete beauty identity system — from logo and packaging to social
-            templates and campaign visuals. Every element designed to feel as refined
-            as the brand itself.
+            A premium identity system shaped around heritage, restraint, and a refined owl-inspired emblem for a luxury fashion house.
           </p>
           <motion.a
-            href="#"
+            href="/work/rojin-phillip"
             className="group inline-flex items-center gap-3 mt-8 text-sm uppercase tracking-[0.15em] text-bone/70 hover:text-yellow transition-colors duration-300 w-fit"
             whileHover={{ x: 8 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -305,7 +307,11 @@ export default function WorkPage() {
   const filtered =
     filter === 'All'
       ? projects
-      : projects.filter((p) => p.category === filter)
+      : projects.filter((p) =>
+          typeof p.category === 'string'
+            ? p.category === filter
+            : p.category.includes(filter)
+        )
 
   const handleFilterChange = useCallback((cat) => {
     setFilter(cat)
